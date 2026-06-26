@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Billing Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --border: #2d3a4f;
+      --text: #e8edf4;
+      --muted: #8b9cb3;
+      --accent: #3b82f6;
+      --up: #f87171;
+      --down: #4ade80;
+      --flat: #94a3b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.35rem; }
+    header p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    main { padding: 1.5rem; max-width: 1400px; margin: 0 auto; }
+    .full-bleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      margin-bottom: 1.5rem;
+    }
+    .full-bleed .panel {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: end;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    select {
+      min-width: 220px;
+      padding: 0.5rem 0.75rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .card .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; }
+    .card .value { font-size: 1.4rem; font-weight: 600; margin-top: 0.25rem; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .panel h2 {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.55rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--muted); font-weight: 500; font-size: 0.75rem; text-transform: uppercase; }
+    th.num { text-align: right; }
+    th.sortable {
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+    th.sortable:hover { color: var(--text); }
+    th.sortable .sort-icon {
+      display: inline-block;
+      margin-left: 0.35rem;
+      opacity: 0.35;
+      font-size: 0.65rem;
+    }
+    th.sortable.active { color: var(--accent); }
+    th.sortable.active .sort-icon { opacity: 1; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .trend-up { color: var(--up); }
+    .trend-down { color: var(--down); }
+    .trend-flat { color: var(--flat); }
+    .rec {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      background: rgba(0,0,0,0.15);
+    }
+    .rec h3 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+    .rec .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .rec ul { margin: 0.35rem 0 0 1.1rem; padding: 0; }
+    .rec li { margin-bottom: 0.25rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-up { background: rgba(248,113,113,0.2); color: var(--up); }
+    .badge-down { background: rgba(74,222,128,0.2); color: var(--down); }
+    .badge-source { background: rgba(59,130,246,0.2); color: var(--accent); }
+    .empty, .error {
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+    }
+    .error { color: var(--up); }
+    canvas { max-height: 320px; }
+    tr.service-row.org-expandable { cursor: pointer; }
+    tr.service-row.org-expandable:hover td { background: rgba(59, 130, 246, 0.06); }
+    tr.service-row.expanded td { background: rgba(59, 130, 246, 0.1); }
+    .expand-icon {
+      display: inline-block;
+      width: 1rem;
+      margin-right: 0.35rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+    tr.service-row.expanded .expand-icon { color: var(--accent); }
+    tr.accordion-row td {
+      padding: 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.18);
+    }
+    .accordion-inner {
+      padding: 0.75rem 1rem 1rem 1.75rem;
+    }
+    .accordion-inner h3 {
+      margin: 0 0 0.65rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    table.account-breakdown-table {
+      font-size: 0.82rem;
+    }
+    table.account-breakdown-table th {
+      font-size: 0.7rem;
+    }
+    #monthlyTrendChart {
+      width: 100%;
+      height: 320px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AWS Billing Dashboard</h1>
+    <p id="subtitle">Loading...</p>
+  </header>
+
+  <main>
+    {% if not has_data %}
+    <div class="error">
+      <p>No billing reports found in <code>./reports</code>.</p>
+      <p>Run: <code>python3 generate_billing_trend_report.py</code></p>
+    </div>
+    {% else %}
+    <div class="controls">
+      <label>
+        Month (yyyymm)
+        <select id="monthSelect">
+          {% for m in available_months %}
+          <option value="{{ m }}" {% if m == month_suffix %}selected{% endif %}>{{ m }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        Linked Account
+        <select id="accountSelect"></select>
+      </label>
+      <label>
+        Service
+        <select id="serviceSelect">
+          <option value="">All services</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="full-bleed">
+      <div class="panel">
+        <h2 id="monthlyTrendTitle">Monthly Billing Trend</h2>
+        <p id="monthlyTrendSubtitle" style="margin:0 0 1rem; font-size:0.82rem; color:var(--muted);"></p>
+        <canvas id="monthlyTrendChart"></canvas>
+      </div>
+    </div>
+
+    <div class="cards" id="summaryCards"></div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Last Month vs MTD Daily Average (top movers)</h2>
+        <canvas id="trendChart"></canvas>
+      </div>
+      <div class="panel">
+        <h2>Forecast Month-End by Service (top 10)</h2>
+        <canvas id="forecastChart"></canvas>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom: 1.5rem;">
+      <h2>Service Comparison</h2>
+      <p id="comparisonHint" class="comparison-hint" style="display:none; margin:0 0 0.75rem; font-size:0.82rem; color:var(--muted);">
+        Click a service row to expand linked-account breakdown (organization view only).
+      </p>
+      <div style="overflow-x: auto;">
+        <table id="comparisonTable">
+          <thead>
+            <tr>
+              <th class="sortable" data-sort="service" data-type="string">Service <span class="sort-icon"></span></th>
+              <th class="sortable num" data-sort="last_month_total_usd" data-type="number">Last Month <span class="sort-icon"></span></th>
+              <th class="sortable num" data-sort="last_month_daily_avg_usd" data-type="number">Last Daily Avg <span class="sort-icon"></span></th>
+              <th class="sortable num" data-sort="mtd_total_usd" data-type="number">MTD <span class="sort-icon"></span></th>
+              <th class="sortable num" data-sort="mtd_daily_avg_usd" data-type="number">MTD Daily Avg <span class="sort-icon"></span></th>
+              <th class="sortable num" data-sort="delta_daily_usd" data-type="number">Δ Daily <span class="sort-icon"></span></th>
+              <th class="sortable num" data-sort="forecast_month_end_usd" data-type="number">Forecast <span class="sort-icon"></span></th>
+              <th class="sortable num" data-sort="forecast_vs_last_month_pct" data-type="number">Forecast % <span class="sort-icon"></span></th>
+              <th class="sortable" data-sort="trend" data-type="string">Trend <span class="sort-icon"></span></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Recommendations</h2>
+      <div id="recommendations"></div>
+    </div>
+    {% endif %}
+  </main>
+
+  {% if has_data %}
+  <script>
+    if (typeof ChartDataLabels !== "undefined") {
+      Chart.register(ChartDataLabels);
+    }
+
+    const monthSelect = document.getElementById("monthSelect");
+    const accountSelect = document.getElementById("accountSelect");
+    const serviceSelect = document.getElementById("serviceSelect");
+    let trendChart = null;
+    let forecastChart = null;
+    let monthlyTrendChart = null;
+    let comparisonRows = [];
+    let serviceAccountBreakdown = {};
+    let currentAccountId = "org";
+    let expandedService = null;
+    let sortColumn = "delta_daily_usd";
+    let sortDirection = "desc";
+    const accordionSortState = {};
+
+    const TREND_ORDER = { up: 0, flat: 1, down: 2 };
+    const ACCOUNT_TABLE_COLUMNS = [
+      { key: "account_name", label: "Linked Account", string: true },
+      { key: "last_month_total_usd", label: "Last Month", num: true },
+      { key: "last_month_daily_avg_usd", label: "Last Daily Avg", num: true },
+      { key: "mtd_total_usd", label: "MTD", num: true },
+      { key: "mtd_daily_avg_usd", label: "MTD Daily Avg", num: true },
+      { key: "delta_daily_usd", label: "Δ Daily", num: true },
+      { key: "forecast_month_end_usd", label: "Forecast", num: true },
+      { key: "forecast_vs_last_month_pct", label: "Forecast %", num: true, pct: true },
+      { key: "trend", label: "Trend", trend: true },
+    ];
+
+    function escapeHtml(text) {
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function fmt(n) {
+      return "$" + Number(n).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function forecastPct(row) {
+      if (row.forecast_vs_last_month_pct != null) return row.forecast_vs_last_month_pct;
+      const last = Number(row.last_month_total_usd) || 0;
+      if (last <= 0) return null;
+      const forecast = Number(row.forecast_month_end_usd) || 0;
+      return ((forecast - last) / last) * 100;
+    }
+
+    function forecastTrend(row) {
+      if (row.forecast_trend) return row.forecast_trend;
+      const pct = forecastPct(row);
+      if (pct == null) return row.trend || "flat";
+      if (Math.abs(pct) < 0.05) return "flat";
+      return pct > 0 ? "up" : "down";
+    }
+
+    function fmtForecastPct(row) {
+      const pct = forecastPct(row);
+      if (pct == null) return "n/a";
+      const abs = Math.abs(pct).toLocaleString(undefined, {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+      });
+      if (pct > 0) return `+${abs}%`;
+      if (pct < 0) return `-${abs}%`;
+      return "0.0%";
+    }
+
+    function fmtShortCurrency(n) {
+      const v = Number(n) || 0;
+      if (v >= 1_000_000) return "$" + (v / 1_000_000).toFixed(1) + "M";
+      if (v >= 100_000) return "$" + Math.round(v / 1000) + "k";
+      return "$" + v.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }
+
+    function trendClass(t) {
+      if (t === "up") return "trend-up";
+      if (t === "down") return "trend-down";
+      return "trend-flat";
+    }
+
+    async function loadData() {
+      const month = monthSelect.value;
+      const account = accountSelect.value || "org";
+      const service = serviceSelect.value;
+      const params = new URLSearchParams({ month, account });
+      if (service) params.set("service", service);
+
+      const resp = await fetch("/api/data?" + params.toString());
+      if (!resp.ok) {
+        document.getElementById("subtitle").textContent = "Failed to load data.";
+        return;
+      }
+      const data = await resp.json();
+      render(data);
+    }
+
+    function render(data) {
+      const periods = data.periods || {};
+      document.getElementById("subtitle").textContent =
+        `Metric: ${data.metric || "n/a"} | Generated: ${data.generated_at || "n/a"} | ` +
+        `${periods.last_month?.label || ""} vs ${periods.current_mtd?.label || ""} MTD`;
+
+      // Populate account dropdown once per load (preserve selection)
+      const prevAccount = accountSelect.value;
+      accountSelect.innerHTML = "";
+      (data.accounts || []).forEach(a => {
+        const opt = document.createElement("option");
+        opt.value = a.id;
+        opt.textContent = a.name;
+        accountSelect.appendChild(opt);
+      });
+      if (prevAccount && [...accountSelect.options].some(o => o.value === prevAccount)) {
+        accountSelect.value = prevAccount;
+      }
+
+      const prevService = serviceSelect.value;
+      serviceSelect.innerHTML = '<option value="">All services</option>';
+      (data.services || []).forEach(s => {
+        const opt = document.createElement("option");
+        opt.value = s;
+        opt.textContent = s;
+        serviceSelect.appendChild(opt);
+      });
+      if (prevService) serviceSelect.value = prevService;
+
+      const s = data.summary || {};
+      const forecastDelta = (s.forecast_month_end_usd || 0) - (s.last_month_total_usd || 0);
+      document.getElementById("summaryCards").innerHTML = `
+        <div class="card"><div class="label">Last Month Total</div><div class="value">${fmt(s.last_month_total_usd)}</div></div>
+        <div class="card"><div class="label">MTD Total</div><div class="value">${fmt(s.mtd_total_usd)}</div></div>
+        <div class="card"><div class="label">MTD Daily Avg</div><div class="value">${fmt(s.mtd_daily_avg_usd)}</div></div>
+        <div class="card"><div class="label">Forecast Month-End</div><div class="value">${fmt(s.forecast_month_end_usd)}</div></div>
+        <div class="card"><div class="label">Forecast vs Last Month</div><div class="value ${forecastDelta >= 0 ? 'trend-up' : 'trend-down'}">${fmt(forecastDelta)}</div></div>
+      `;
+
+      comparisonRows = data.comparison || [];
+      serviceAccountBreakdown = data.service_account_breakdown || {};
+      currentAccountId = data.account_id || "org";
+      if (currentAccountId !== "org") {
+        expandedService = null;
+      }
+      document.getElementById("comparisonHint").style.display =
+        currentAccountId === "org" ? "block" : "none";
+
+      renderMonthlyTrendChart(data);
+      renderComparisonTable();
+      const chartRows = [...comparisonRows]
+        .sort((a, b) => Math.abs(b.delta_daily_usd) - Math.abs(a.delta_daily_usd))
+        .slice(0, 15);
+      renderCharts(chartRows);
+      renderRecommendations(data.recommendations || []);
+    }
+
+    function renderMonthlyTrendChart(data) {
+      const trend = data.monthly_trend || {};
+      const months = trend.months || [];
+      const titleEl = document.getElementById("monthlyTrendTitle");
+      const subtitleEl = document.getElementById("monthlyTrendSubtitle");
+
+      titleEl.textContent = `Monthly Billing Trend — ${data.account_name || "Organization"}`;
+      subtitleEl.textContent = months.length
+        ? `Last ${months.length - 1} full months (actual) · current month (projected) · metric: ${trend.metric || data.metric || "n/a"}`
+        : "Monthly trend data not available. Run: python3 generate_billing_trend_report.py --force";
+
+      if (monthlyTrendChart) {
+        monthlyTrendChart.destroy();
+        monthlyTrendChart = null;
+      }
+
+      if (!months.length) {
+        return;
+      }
+
+      const labels = months.map(m => m.label);
+      const actuals = months.map(m => (m.kind === "actual" ? m.total_usd : null));
+      const lastActual = months.filter(m => m.kind === "actual").slice(-1)[0];
+      const projected = months.find(m => m.kind === "projected");
+      const bridge = months.map(m => {
+        if (!lastActual || !projected) return null;
+        if (m.month_suffix === lastActual.month_suffix) return lastActual.total_usd;
+        if (m.kind === "projected") return projected.total_usd;
+        return null;
+      });
+
+      const projectedUp = projected && lastActual
+        ? projected.total_usd > lastActual.total_usd
+        : false;
+      const projectedColor = projectedUp ? "#f87171" : "#4ade80";
+
+      const datalabelOpts = {
+        display: (ctx) => ctx.dataset.data[ctx.dataIndex] != null,
+        anchor: "end",
+        align: "top",
+        offset: 4,
+        color: "#e8edf4",
+        font: { size: 11, weight: "600" },
+        formatter: (v) => fmtShortCurrency(v),
+      };
+
+      monthlyTrendChart = new Chart(document.getElementById("monthlyTrendChart"), {
+        type: "line",
+        data: {
+          labels,
+          datasets: [
+            {
+              label: "Actual bill",
+              data: actuals,
+              borderColor: "#3b82f6",
+              backgroundColor: "rgba(59, 130, 246, 0.15)",
+              pointBackgroundColor: "#3b82f6",
+              pointRadius: 5,
+              pointHoverRadius: 6,
+              borderWidth: 2.5,
+              tension: 0.15,
+              spanGaps: false,
+              datalabels: datalabelOpts,
+            },
+            {
+              label: "Projected (current month)",
+              data: bridge,
+              borderColor: projectedColor,
+              backgroundColor: projectedUp
+                ? "rgba(248, 113, 113, 0.12)"
+                : "rgba(74, 222, 128, 0.12)",
+              pointBackgroundColor: projectedColor,
+              pointRadius: (ctx) => (months[ctx.dataIndex]?.kind === "projected" ? 6 : 5),
+              pointBorderColor: "#e8edf4",
+              pointBorderWidth: (ctx) => (months[ctx.dataIndex]?.kind === "projected" ? 2 : 0),
+              borderWidth: 2.5,
+              borderDash: [6, 4],
+              tension: 0,
+              spanGaps: false,
+              datalabels: {
+                ...datalabelOpts,
+                display: (ctx) => months[ctx.dataIndex]?.kind === "projected",
+                color: projectedColor,
+              },
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 28 } },
+          plugins: {
+            legend: {
+              labels: { color: "#e8edf4", boxWidth: 14 },
+            },
+            datalabels: { clip: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => {
+                  const m = months[ctx.dataIndex];
+                  const kind = m?.kind === "projected" ? " (projected)" : "";
+                  return `${ctx.dataset.label}: ${fmt(ctx.parsed.y)}${kind}`;
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: { color: "#8b9cb3" },
+              grid: { color: "rgba(45, 58, 79, 0.5)" },
+            },
+            y: {
+              ticks: {
+                color: "#8b9cb3",
+                callback: (v) => fmtShortCurrency(v),
+              },
+              grid: { color: "#2d3a4f" },
+            },
+          },
+        },
+      });
+    }
+
+    function sortGeneric(rows, column, direction, labelKey) {
+      const dir = direction === "asc" ? 1 : -1;
+      return [...rows].sort((a, b) => {
+        let av = a[column];
+        let bv = b[column];
+        if (column === "trend") {
+          av = TREND_ORDER[av] ?? 99;
+          bv = TREND_ORDER[bv] ?? 99;
+        } else if (column === "forecast_vs_last_month_pct") {
+          av = forecastPct(a);
+          bv = forecastPct(b);
+          const aNull = av == null;
+          const bNull = bv == null;
+          if (aNull && bNull) return 0;
+          if (aNull) return 1;
+          if (bNull) return -1;
+          av = Number(av);
+          bv = Number(bv);
+        } else if (column === "service" || column === "account_name") {
+          av = (av || "").toLowerCase();
+          bv = (bv || "").toLowerCase();
+          return av.localeCompare(bv) * dir;
+        } else {
+          av = Number(av) || 0;
+          bv = Number(bv) || 0;
+        }
+        if (av < bv) return -1 * dir;
+        if (av > bv) return 1 * dir;
+        return (a[labelKey] || "").localeCompare(b[labelKey] || "");
+      });
+    }
+
+    function sortRows(rows) {
+      return sortGeneric(rows, sortColumn, sortDirection, "service");
+    }
+
+    function getAccordionSort(service) {
+      return accordionSortState[service] || { column: "delta_daily_usd", direction: "desc" };
+    }
+
+    function renderAccountCell(row) {
+      return `
+        <td>${escapeHtml(row.account_name)}</td>
+        <td class="num">${fmt(row.last_month_total_usd)}</td>
+        <td class="num">${fmt(row.last_month_daily_avg_usd)}</td>
+        <td class="num">${fmt(row.mtd_total_usd)}</td>
+        <td class="num">${fmt(row.mtd_daily_avg_usd)}</td>
+        <td class="num ${trendClass(row.trend)}">${fmt(row.delta_daily_usd)}</td>
+        <td class="num">${fmt(row.forecast_month_end_usd)}</td>
+        <td class="num ${trendClass(forecastTrend(row))}">${fmtForecastPct(row)}</td>
+        <td class="${trendClass(row.trend)}">${row.trend}</td>
+      `;
+    }
+
+    function renderAccordionTable(service) {
+      const accounts = serviceAccountBreakdown[service] || [];
+      const sortState = getAccordionSort(service);
+      const sorted = sortGeneric(accounts, sortState.column, sortState.direction, "account_name");
+      const header = ACCOUNT_TABLE_COLUMNS.map(col => {
+        const active = sortState.column === col.key;
+        const icon = active ? (sortState.direction === "asc" ? "▲" : "▼") : "⇅";
+        const cls = ["sortable", col.num ? "num" : "", active ? "active" : ""].filter(Boolean).join(" ");
+        return `<th class="${cls}" data-service="${escapeHtml(service)}" data-sort="${col.key}">${col.label} <span class="sort-icon">${icon}</span></th>`;
+      }).join("");
+
+      const body = sorted.length
+        ? sorted.map(row => `<tr>${renderAccountCell(row)}</tr>`).join("")
+        : '<tr><td colspan="9" class="empty">No linked-account spend for this service.</td></tr>';
+
+      return `
+        <div class="accordion-inner">
+          <h3>Linked accounts — ${escapeHtml(service)}</h3>
+          <table class="account-breakdown-table" data-service="${escapeHtml(service)}">
+            <thead><tr>${header}</tr></thead>
+            <tbody>${body}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderComparisonTable() {
+      const sorted = sortRows(comparisonRows);
+      const tbody = document.querySelector("#comparisonTable tbody");
+      const orgView = currentAccountId === "org";
+
+      if (!sorted.length) {
+        tbody.innerHTML = '<tr><td colspan="9" class="empty">No services for the current filters.</td></tr>';
+      } else {
+        const parts = [];
+        sorted.forEach(r => {
+          const isExpanded = orgView && expandedService === r.service;
+          const hasBreakdown = orgView && (serviceAccountBreakdown[r.service] || []).length > 0;
+          const rowClass = [
+            "service-row",
+            orgView && hasBreakdown ? "org-expandable" : "",
+            isExpanded ? "expanded" : "",
+          ].filter(Boolean).join(" ");
+          const expandIcon = orgView && hasBreakdown
+            ? `<span class="expand-icon">${isExpanded ? "▼" : "▶"}</span>`
+            : '<span class="expand-icon"></span>';
+
+          parts.push(`
+            <tr class="${rowClass}" data-service="${escapeHtml(r.service)}">
+              <td>${expandIcon}${escapeHtml(r.service)}</td>
+              <td class="num">${fmt(r.last_month_total_usd)}</td>
+              <td class="num">${fmt(r.last_month_daily_avg_usd)}</td>
+              <td class="num">${fmt(r.mtd_total_usd)}</td>
+              <td class="num">${fmt(r.mtd_daily_avg_usd)}</td>
+              <td class="num ${trendClass(r.trend)}">${fmt(r.delta_daily_usd)}</td>
+              <td class="num">${fmt(r.forecast_month_end_usd)}</td>
+              <td class="num ${trendClass(forecastTrend(r))}">${fmtForecastPct(r)}</td>
+              <td class="${trendClass(r.trend)}">${r.trend}</td>
+            </tr>
+          `);
+
+          if (isExpanded) {
+            parts.push(`
+              <tr class="accordion-row" data-service="${escapeHtml(r.service)}">
+                <td colspan="9">${renderAccordionTable(r.service)}</td>
+              </tr>
+            `);
+          }
+        });
+        tbody.innerHTML = parts.join("");
+      }
+      updateSortHeaders();
+    }
+
+    function updateSortHeaders() {
+      document.querySelectorAll("#comparisonTable > thead th.sortable").forEach(th => {
+        const col = th.dataset.sort;
+        const icon = th.querySelector(".sort-icon");
+        th.classList.toggle("active", col === sortColumn);
+        if (col === sortColumn) {
+          icon.textContent = sortDirection === "asc" ? "▲" : "▼";
+        } else {
+          icon.textContent = "⇅";
+        }
+      });
+    }
+
+    function renderCharts(rows) {
+      const labels = rows.map(r => r.service.length > 28 ? r.service.slice(0, 26) + "…" : r.service);
+      const lastDaily = rows.map(r => r.last_month_daily_avg_usd);
+      const mtdDaily = rows.map(r => r.mtd_daily_avg_usd);
+      const forecasts = rows.slice(0, 10).map(r => r.forecast_month_end_usd);
+      const forecastLabels = rows.slice(0, 10).map(r =>
+        r.service.length > 24 ? r.service.slice(0, 22) + "…" : r.service
+      );
+
+      if (trendChart) trendChart.destroy();
+      trendChart = new Chart(document.getElementById("trendChart"), {
+        type: "bar",
+        data: {
+          labels,
+          datasets: [
+            { label: "Last month daily avg", data: lastDaily, backgroundColor: "rgba(148,163,184,0.7)" },
+            { label: "MTD daily avg", data: mtdDaily, backgroundColor: "rgba(59,130,246,0.8)" },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { labels: { color: "#e8edf4" } } },
+          scales: {
+            x: { ticks: { color: "#8b9cb3", maxRotation: 45 } },
+            y: { ticks: { color: "#8b9cb3" }, grid: { color: "#2d3a4f" } },
+          },
+        },
+      });
+
+      if (forecastChart) forecastChart.destroy();
+      forecastChart = new Chart(document.getElementById("forecastChart"), {
+        type: "bar",
+        data: {
+          labels: forecastLabels,
+          datasets: [
+            { label: "Forecast month-end", data: forecasts, backgroundColor: "rgba(74,222,128,0.65)" },
+          ],
+        },
+        options: {
+          indexAxis: "y",
+          responsive: true,
+          plugins: { legend: { labels: { color: "#e8edf4" } } },
+          scales: {
+            x: { ticks: { color: "#8b9cb3" }, grid: { color: "#2d3a4f" } },
+            y: { ticks: { color: "#8b9cb3" } },
+          },
+        },
+      });
+    }
+
+    function renderRecommendations(items) {
+      const el = document.getElementById("recommendations");
+      if (!items.length) {
+        el.innerHTML = '<div class="empty">No recommendations for the current filters.</div>';
+        return;
+      }
+      el.innerHTML = items.map(r => `
+        <div class="rec">
+          <h3>${r.service}</h3>
+          <div class="meta">
+            ${r.account_name || ""}
+            <span class="badge badge-${r.trend}">${r.trend}</span>
+            <span class="badge badge-source">${r.source || "heuristic"}</span>
+            Δ ${fmt(r.delta_daily_usd)}/day
+          </div>
+          <p>${r.summary || ""}</p>
+          ${r.likely_causes?.length ? "<strong>Likely causes</strong><ul>" + r.likely_causes.map(c => `<li>${c}</li>`).join("") + "</ul>" : ""}
+          ${r.actions?.length ? "<strong>Actions</strong><ul>" + r.actions.map(a => `<li>${a}</li>`).join("") + "</ul>" : ""}
+        </div>
+      `).join("");
+    }
+
+    document.querySelectorAll("#comparisonTable > thead th.sortable").forEach(th => {
+      th.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const col = th.dataset.sort;
+        if (sortColumn === col) {
+          sortDirection = sortDirection === "asc" ? "desc" : "asc";
+        } else {
+          sortColumn = col;
+          sortDirection = col === "service" || col === "trend" ? "asc" : "desc";
+        }
+        renderComparisonTable();
+      });
+    });
+
+    document.querySelector("#comparisonTable tbody").addEventListener("click", (e) => {
+      const sortTh = e.target.closest(".account-breakdown-table th.sortable");
+      if (sortTh) {
+        e.stopPropagation();
+        const service = sortTh.dataset.service;
+        const col = sortTh.dataset.sort;
+        const state = getAccordionSort(service);
+        if (state.column === col) {
+          state.direction = state.direction === "asc" ? "desc" : "asc";
+        } else {
+          state.column = col;
+          state.direction = col === "account_name" || col === "trend" ? "asc" : "desc";
+        }
+        accordionSortState[service] = state;
+        renderComparisonTable();
+        return;
+      }
+
+      if (currentAccountId !== "org") return;
+      const row = e.target.closest("tr.service-row.org-expandable");
+      if (!row) return;
+      const service = row.dataset.service;
+      expandedService = expandedService === service ? null : service;
+      renderComparisonTable();
+    });
+
+    monthSelect.addEventListener("change", loadData);
+    accountSelect.addEventListener("change", loadData);
+    serviceSelect.addEventListener("change", loadData);
+    loadData();
+  </script>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,642 @@
+{
+  "generated_at": "2026-06-25T11:13:08.354358+00:00",
+  "month_suffix": "202606",
+  "history_month_count": 6,
+  "org": {
+    "metric": "NetAmortizedCost",
+    "months": [
+      {
+        "month_suffix": "202512",
+        "label": "Dec 2025",
+        "total_usd": 193445.17,
+        "kind": "actual"
+      },
+      {
+        "month_suffix": "202601",
+        "label": "Jan 2026",
+        "total_usd": 177390.76,
+        "kind": "actual"
+      },
+      {
+        "month_suffix": "202602",
+        "label": "Feb 2026",
+        "total_usd": 147749.92,
+        "kind": "actual"
+      },
+      {
+        "month_suffix": "202603",
+        "label": "Mar 2026",
+        "total_usd": 137434.03,
+        "kind": "actual"
+      },
+      {
+        "month_suffix": "202604",
+        "label": "Apr 2026",
+        "total_usd": 128608.7,
+        "kind": "actual"
+      },
+      {
+        "month_suffix": "202605",
+        "label": "May 2026",
+        "total_usd": 114666.5,
+        "kind": "actual"
+      },
+      {
+        "month_suffix": "202606",
+        "label": "Jun 2026",
+        "total_usd": 121512.95,
+        "kind": "projected"
+      }
+    ]
+  },
+  "by_account": {
+    "055184381049": {
+      "name": "josys-master",
+      "account_id": "055184381049",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 16418.69,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": -11714.08,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 12758.65,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 12359.17,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 11956.38,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 12713.67,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 13780.88,
+          "kind": "projected"
+        }
+      ]
+    },
+    "137575128411": {
+      "name": "josys-dev2",
+      "account_id": "137575128411",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 22078.84,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 24678.64,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 14598.52,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 11538.08,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 9602.62,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 9182.82,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 7778.23,
+          "kind": "projected"
+        }
+      ]
+    },
+    "340752826805": {
+      "name": "pre-staging",
+      "account_id": "340752826805",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 45355.43,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 45073.14,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 18404.46,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 13948.67,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 14262.98,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 14021.54,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 14689.42,
+          "kind": "projected"
+        }
+      ]
+    },
+    "905418452628": {
+      "name": "idac-qa",
+      "account_id": "905418452628",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 4222.26,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 5238.36,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 3969.55,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 3145.08,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 3295.59,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 3513.32,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 3112.83,
+          "kind": "projected"
+        }
+      ]
+    },
+    "351343535468": {
+      "name": "josys-prod",
+      "account_id": "351343535468",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 34085.59,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 35458.35,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 32159.45,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 35184.58,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 36197.98,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 22011.59,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 31491.73,
+          "kind": "projected"
+        }
+      ]
+    },
+    "637423183342": {
+      "name": "idac-prod",
+      "account_id": "637423183342",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 14552.19,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 16235.15,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 11800.97,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 10792.0,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 9952.49,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 10423.58,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 10464.17,
+          "kind": "projected"
+        }
+      ]
+    },
+    "598628178244": {
+      "name": "josys-staging",
+      "account_id": "598628178244",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 14523.61,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 14498.59,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 14127.94,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 11029.31,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 7212.36,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 6018.47,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 5982.33,
+          "kind": "projected"
+        }
+      ]
+    },
+    "152426705810": {
+      "name": "caf-rpa",
+      "account_id": "152426705810",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 4212.05,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 4523.77,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 2749.54,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 1972.14,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 2242.48,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 1973.48,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 1825.32,
+          "kind": "projected"
+        }
+      ]
+    },
+    "229468566969": {
+      "name": "josys-us",
+      "account_id": "229468566969",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 9388.13,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 18476.92,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 16560.65,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 18960.25,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 17949.58,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 18302.09,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 16195.14,
+          "kind": "projected"
+        }
+      ]
+    },
+    "147997136868": {
+      "name": "jep-devqa",
+      "account_id": "147997136868",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 3398.92,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 3438.06,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 3064.67,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 2277.11,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 2040.38,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 2119.27,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 2171.34,
+          "kind": "projected"
+        }
+      ]
+    },
+    "688567279148": {
+      "name": "jep-prod",
+      "account_id": "688567279148",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 3286.65,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 3398.69,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 3047.79,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 3101.32,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 3092.95,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 3234.32,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 3063.17,
+          "kind": "projected"
+        }
+      ]
+    },
+    "463470957463": {
+      "name": "jep-stage",
+      "account_id": "463470957463",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202512",
+          "label": "Dec 2025",
+          "total_usd": 2074.62,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 2100.78,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 1735.05,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 1725.44,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 1653.76,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 1815.15,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 1757.03,
+          "kind": "projected"
+        }
+      ]
+    }
+  }
+}
