@@ -6,8 +6,11 @@ Fetches org-wide and per-linked-account spend from the payer Cost Explorer view,
 compares last calendar month to current month-to-date, writes yyyymm-prefixed
 artifacts under ./reports/, and generates cost recommendations.
 
-Skips Cost Explorer calls when {yyyymm}_billing_baseline.json already exists
-unless --force is passed.
+Caches spend in {yyyymm}_billing_baseline.json for the calendar month (Cost Explorer
+calls only when that file is missing, unless --force). Month-end forecasts are
+refreshed from GetCostForecast on every run. On each run, deletes other files
+under ./reports/ and regenerates the text report, recommendations, and monthly
+trend from the cached baseline.
 """
 
 from __future__ import annotations
@@ -23,9 +26,14 @@ import boto3
 from botocore.exceptions import ClientError
 
 from config import PAYER_PROFILE, PROFILES, configured_aws_profiles
-from monthly_trend import build_monthly_trend
+from monthly_trend import (
+    build_monthly_trend_from_baseline,
+    ensure_monthly_service_history,
+    fetch_monthly_history,
+)
 from recommendations import generate_recommendations
-from report_paths import REPORTS_DIR, current_month_suffix, report_paths
+from report_paths import REPORTS_DIR, clean_derived_reports, report_paths
+from report_views import attach_linked_accounts_view
 
 PRIMARY_METRIC = "NetAmortizedCost"
 FALLBACK_METRIC = "AmortizedCost"
@@ -34,6 +42,9 @@ LINKED_FALLBACK_METRIC = "UnblendedCost"
 CE_REGION = "us-east-1"
 DRILLDOWN_TOP_N = 15
 MIN_DAILY_DELTA_USD = 1.0
+# Matches AWS Billing console month-end forecast (GetCostForecast MONTHLY).
+FORECAST_METRIC_ORG = "NET_UNBLENDED_COST"
+FORECAST_METRIC_LINKED = "NET_UNBLENDED_COST"
 
 
 def billing_periods(today: date | None = None) -> dict:
@@ -295,6 +306,99 @@ def build_scope_block(
     }
 
 
+def _recalc_forecast_row(row: dict) -> None:
+    last_total = float(row.get("last_month_total_usd", 0) or 0)
+    forecast = float(row.get("forecast_month_end_usd", 0) or 0)
+    forecast_pct = ((forecast - last_total) / last_total * 100.0) if last_total > 0 else None
+    forecast_delta = forecast - last_total
+    row["forecast_vs_last_month_pct"] = (
+        round(forecast_pct, 1) if forecast_pct is not None else None
+    )
+    if abs(forecast_delta) < 0.01:
+        row["forecast_trend"] = "flat"
+    elif forecast_delta > 0:
+        row["forecast_trend"] = "up"
+    else:
+        row["forecast_trend"] = "down"
+
+
+def _linear_month_end_forecast(scope: dict, days_in_month: int) -> float:
+    mtd_daily = float(scope.get("mtd", {}).get("daily_avg_usd", 0) or 0)
+    return mtd_daily * days_in_month
+
+
+def fetch_month_end_forecast(
+    ce_client,
+    today: date,
+    *,
+    linked_account_id: str | None = None,
+) -> float:
+    """AWS Cost Explorer month-end forecast (same source as Billing console)."""
+    if today.month == 12:
+        next_month = date(today.year + 1, 1, 1)
+    else:
+        next_month = date(today.year, today.month + 1, 1)
+
+    metric = FORECAST_METRIC_LINKED if linked_account_id else FORECAST_METRIC_ORG
+    params: dict = {
+        "TimePeriod": {"Start": today.isoformat(), "End": next_month.isoformat()},
+        "Granularity": "MONTHLY",
+        "Metric": metric,
+    }
+    if linked_account_id:
+        params["Filter"] = {
+            "Dimensions": {"Key": "LINKED_ACCOUNT", "Values": [linked_account_id]}
+        }
+
+    resp = ce_client.get_cost_forecast(**params)
+    return float(resp.get("Total", {}).get("Amount", 0) or 0)
+
+
+def apply_aws_forecasts(ce_client, baseline: dict, today: date) -> None:
+    """Replace linear MTD extrapolation with Cost Explorer forecasts."""
+    periods = baseline.get("periods", {})
+    days_in_month = periods.get("current_mtd", {}).get("days_in_month", 30)
+    forecast_at = datetime.now(timezone.utc).isoformat()
+
+    org = baseline["org"]
+    linear_org = _linear_month_end_forecast(org, days_in_month)
+    aws_org = fetch_month_end_forecast(ce_client, today)
+    org["forecast_month_end_usd"] = round(aws_org, 2)
+    org["forecast_method"] = "aws_cost_explorer"
+    org["forecast_metric"] = FORECAST_METRIC_ORG
+    org["forecast_updated_at"] = forecast_at
+
+    scale_org = aws_org / linear_org if linear_org > 0 else 1.0
+    for row in org.get("comparison", []):
+        row["forecast_month_end_usd"] = round(
+            float(row.get("forecast_month_end_usd", 0) or 0) * scale_org, 2
+        )
+        _recalc_forecast_row(row)
+
+    for account_id, acct in baseline.get("by_account", {}).items():
+        if acct.get("error"):
+            continue
+        linear_acct = _linear_month_end_forecast(acct, days_in_month)
+        aws_acct = fetch_month_end_forecast(
+            ce_client, today, linked_account_id=account_id
+        )
+        acct["forecast_month_end_usd"] = round(aws_acct, 2)
+        acct["forecast_method"] = "aws_cost_explorer"
+        acct["forecast_metric"] = FORECAST_METRIC_LINKED
+        acct["forecast_updated_at"] = forecast_at
+
+        scale_acct = aws_acct / linear_acct if linear_acct > 0 else 1.0
+        for row in acct.get("comparison", []):
+            row["forecast_month_end_usd"] = round(
+                float(row.get("forecast_month_end_usd", 0) or 0) * scale_acct, 2
+            )
+            _recalc_forecast_row(row)
+
+    baseline["forecast_method"] = "aws_cost_explorer"
+    baseline["forecast_metric"] = FORECAST_METRIC_ORG
+    baseline["forecast_updated_at"] = forecast_at
+
+
 def collect_usage_drilldown(
     ce_client,
     comparison: list[dict],
@@ -506,11 +610,6 @@ def main() -> None:
         help="Re-fetch spend data from Cost Explorer even if baseline file exists.",
     )
     parser.add_argument(
-        "--refresh-recommendations",
-        action="store_true",
-        help="Regenerate recommendations without re-fetching spend (uses cached baseline).",
-    )
-    parser.add_argument(
         "--month",
         help="Target month as yyyymm (defaults to current month).",
     )
@@ -524,10 +623,25 @@ def main() -> None:
 
     os.makedirs(REPORTS_DIR, exist_ok=True)
 
+    removed = clean_derived_reports()
+    if removed:
+        print(f"Removed {len(removed)} derived report file(s) (kept baseline cache).")
+
     baseline: dict | None = None
     if os.path.isfile(paths["baseline"]) and not args.force:
         print(f"Using cached baseline: {paths['baseline']}")
         baseline = load_baseline(paths["baseline"])
+        if "monthly_history" not in baseline:
+            print("Backfilling monthly history into baseline (one-time Cost Explorer fetch)...")
+            ce_client = get_payer_ce_client()
+            try:
+                baseline["monthly_history"] = fetch_monthly_history(ce_client, today)
+            except ClientError as exc:
+                code = exc.response.get("Error", {}).get("Code", "Unknown")
+                msg = exc.response.get("Error", {}).get("Message", str(exc))
+                print(f"Monthly history fetch failed ({code}): {msg}")
+                sys.exit(1)
+            save_json(paths["baseline"], baseline)
     else:
         print("Fetching billing data from AWS Cost Explorer...")
         print(f"  Last month: {periods['last_month']['start']} → {periods['last_month']['end']}")
@@ -535,6 +649,7 @@ def main() -> None:
         ce_client = get_payer_ce_client()
         try:
             baseline = fetch_baseline_from_aws(ce_client, periods)
+            baseline["monthly_history"] = fetch_monthly_history(ce_client, today)
         except ClientError as exc:
             code = exc.response.get("Error", {}).get("Code", "Unknown")
             msg = exc.response.get("Error", {}).get("Message", str(exc))
@@ -547,34 +662,36 @@ def main() -> None:
         print("No baseline data available.")
         sys.exit(1)
 
+    view_backfill = "linked_accounts_view" not in baseline
+    print("Refreshing month-end forecasts from AWS Cost Explorer...")
+    ce_client = get_payer_ce_client()
+    try:
+        if ensure_monthly_service_history(ce_client, baseline, today):
+            print("Per-service monthly history saved to baseline.")
+        apply_aws_forecasts(ce_client, baseline, today)
+    except ClientError as exc:
+        code = exc.response.get("Error", {}).get("Code", "Unknown")
+        msg = exc.response.get("Error", {}).get("Message", str(exc))
+        print(f"Forecast refresh failed ({code}): {msg}")
+        sys.exit(1)
+
+    attach_linked_accounts_view(baseline)
+    save_json(paths["baseline"], baseline)
+    if view_backfill:
+        print("Linked accounts view backfilled into baseline.")
+
     write_text_report(baseline, paths["report"])
     print(f"Text report written: {paths['report']}")
 
-    recs_exist = os.path.isfile(paths["recommendations"])
-    if args.refresh_recommendations or not recs_exist or args.force:
-        print("Generating recommendations...")
-        recs = generate_recommendations(baseline)
-        save_json(paths["recommendations"], recs)
-        print(f"Recommendations written: {paths['recommendations']} ({recs['recommendation_count']} items)")
-    else:
-        print(f"Using cached recommendations: {paths['recommendations']}")
+    print("Generating recommendations...")
+    recs = generate_recommendations(baseline)
+    save_json(paths["recommendations"], recs)
+    print(f"Recommendations written: {paths['recommendations']} ({recs['recommendation_count']} items)")
 
-    monthly_trend: dict | None = None
-    if os.path.isfile(paths["monthly_trend"]) and not args.force:
-        print(f"Using cached monthly trend: {paths['monthly_trend']}")
-        monthly_trend = load_baseline(paths["monthly_trend"])
-    else:
-        print("Fetching six-month billing trend from Cost Explorer...")
-        ce_client = get_payer_ce_client()
-        try:
-            monthly_trend = build_monthly_trend(ce_client, today, baseline)
-        except ClientError as exc:
-            code = exc.response.get("Error", {}).get("Code", "Unknown")
-            msg = exc.response.get("Error", {}).get("Message", str(exc))
-            print(f"Monthly trend fetch failed ({code}): {msg}")
-            sys.exit(1)
-        save_json(paths["monthly_trend"], monthly_trend)
-        print(f"Monthly trend written: {paths['monthly_trend']}")
+    print("Building monthly trend from cached baseline...")
+    monthly_trend = build_monthly_trend_from_baseline(baseline)
+    save_json(paths["monthly_trend"], monthly_trend)
+    print(f"Monthly trend written: {paths['monthly_trend']}")
 
     org = baseline["org"]
     print("")

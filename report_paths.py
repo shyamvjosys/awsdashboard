@@ -39,6 +39,25 @@ def find_latest_month() -> tuple[str | None, dict[str, str] | None]:
     return month_suffix, report_paths(month_suffix)
 
 
+def is_baseline_filename(name: str) -> bool:
+    return name.endswith("_billing_baseline.json")
+
+
+def clean_derived_reports() -> list[str]:
+    """Delete all files in reports/ except monthly baseline JSON caches."""
+    if not os.path.isdir(REPORTS_DIR):
+        return []
+    removed: list[str] = []
+    for name in os.listdir(REPORTS_DIR):
+        if is_baseline_filename(name):
+            continue
+        path = os.path.join(REPORTS_DIR, name)
+        if os.path.isfile(path):
+            os.remove(path)
+            removed.append(path)
+    return removed
+
+
 def load_json(path: str) -> dict | None:
     if not os.path.isfile(path):
         return None

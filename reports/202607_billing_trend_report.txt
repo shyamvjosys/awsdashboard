@@ -1,0 +1,90 @@
+====================================================================================================
+AWS BILLING TREND REPORT
+Generated: 2026-07-08T06:21:37.147360+00:00
+Month suffix: 202607
+Org metric: NetAmortizedCost
+Linked account metric: AmortizedCost
+Payer profile: josys-master
+====================================================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------------------------------------------------------------------
+Last month (June 2026):     $    123,947.01
+Current MTD (July 2026):  $     33,118.06
+MTD daily average:                    $      4,139.76
+Forecast month-end:                   $    110,748.76
+Forecast vs last month:               $    -13,198.25
+
+LAST MONTH — TOP SERVICES
+----------------------------------------------------------------------------------------------------
+  Amazon Elastic Container Service                        $   20,621.80
+  Amazon Relational Database Service                      $   15,132.14
+  Amazon Elastic Compute Cloud - Compute                  $   13,041.20
+  AmazonCloudWatch                                        $   10,884.95
+  Tax                                                     $   10,135.67
+  Amazon DocumentDB (with MongoDB compatibility)          $    9,700.83
+  AWS Support (Enterprise)                                $    9,627.34
+  EC2 - Other                                             $    6,573.78
+  Amazon Managed Streaming for Apache Kafka               $    3,830.61
+  Amazon Virtual Private Cloud                            $    3,695.78
+  Amazon Elastic Load Balancing                           $    2,785.03
+  Amazon Simple Storage Service                           $    2,101.07
+  Amazon OpenSearch Service                               $    2,033.62
+  Amazon Managed Workflows for Apache Airflow             $    1,973.96
+  Amazon ElastiCache                                      $    1,698.30
+  Grafana Cloud observability: Grafana, Prometheus metrics, logs, traces $    1,190.00
+  CodeBuild                                               $    1,124.50
+  AWS Key Management Service                              $    1,030.14
+  Amazon EC2 Container Registry (ECR)                     $      875.29
+  Amazon Elastic Container Service for Kubernetes         $      794.88
+
+COST DRIVERS — TRENDING UP (org)
+----------------------------------------------------------------------------------------------------
+  Tax                                           Δ $  266.30/day (+78.8%)  forecast $13,356.14
+  AWS Support (Enterprise)                      Δ $  252.96/day (+78.8%)  forecast $12,686.51
+  Savings Plans for AWS Compute usage           Δ $  104.79/day (+920.8%)  forecast $2,568.28
+  Grafana Cloud observability: Grafana, Prometheus metrics, logs, traces Δ $   31.58/day (+79.6%)  forecast $1,575.12
+  AWS Identity and Access Management Access Analyzer Δ $    6.86/day (+264.4%)  forecast $208.97
+  Amazon EC2 Container Registry (ECR)           Δ $    4.99/day (+17.1%)  forecast $755.34
+  Amazon Route 53                               Δ $    1.48/day (+178.9%)  forecast $51.05
+  AWS Security Hub                              Δ $    1.20/day (+1585.5%)  forecast $28.28
+
+COST DRIVERS — TRENDING DOWN (org)
+----------------------------------------------------------------------------------------------------
+  Amazon Elastic Container Service              Δ $ -148.05/day (-21.5%)  forecast $11,923.29
+  Amazon Relational Database Service            Δ $ -105.18/day (-20.9%)  forecast $8,825.61
+  AmazonCloudWatch                              Δ $  -81.92/day (-22.6%)  forecast $6,210.06
+  Amazon Elastic Compute Cloud - Compute        Δ $  -66.92/day (-15.4%)  forecast $8,130.62
+  Amazon DocumentDB (with MongoDB compatibility) Δ $  -42.69/day (-13.2%)  forecast $6,204.76
+  EC2 - Other                                   Δ $  -33.99/day (-15.5%)  forecast $4,092.92
+  Amazon Managed Streaming for Apache Kafka     Δ $  -29.42/day (-23.0%)  forecast $2,172.50
+  Amazon Elastic Load Balancing                 Δ $  -22.97/day (-24.7%)  forecast $1,544.45
+  Amazon Virtual Private Cloud                  Δ $  -22.18/day (-18.0%)  forecast $2,233.04
+  Amazon OpenSearch Service                     Δ $  -19.29/day (-28.5%)  forecast $1,072.07
+  Amazon ElastiCache                            Δ $  -15.39/day (-27.2%)  forecast $911.34
+  CodeBuild                                     Δ $  -14.93/day (-39.8%)  forecast $498.60
+  Amazon Managed Workflows for Apache Airflow   Δ $   -6.63/day (-10.1%)  forecast $1,308.00
+  Amazon Inspector                              Δ $   -6.09/day (-32.9%)  forecast $274.97
+  AWS Key Management Service                    Δ $   -5.69/day (-16.6%)  forecast $633.43
+  AWS Systems Manager                           Δ $   -5.58/day (-50.8%)  forecast $119.32
+  Amazon Elastic MapReduce                      Δ $   -5.37/day (-30.7%)  forecast $268.23
+  Amazon CloudFront                             Δ $   -4.95/day (-48.5%)  forecast $116.37
+  AWS WAF                                       Δ $   -4.80/day (-19.9%)  forecast $428.09
+  Amazon Elastic Container Service for Kubernetes Δ $   -3.45/day (-13.0%)  forecast $509.49
+
+LINKED ACCOUNTS — FORECAST SUMMARY
+----------------------------------------------------------------------------------------------------
+  josys-master         (055184381049)  last $ 12,228.08  mtd $  8,697.80  forecast $ 47,379.12
+  josys-prod           (351343535468)  last $ 33,099.77  mtd $  7,562.44  forecast $ 22,179.79
+  josys-us             (229468566969)  last $ 16,923.73  mtd $  3,884.65  forecast $  7,794.81
+  idac-prod            (637423183342)  last $ 10,859.99  mtd $  2,338.47  forecast $  5,919.17
+  josys-dev2           (137575128411)  last $  7,940.19  mtd $  1,722.04  forecast $  5,015.22
+  pre-staging          (340752826805)  last $ 14,001.32  mtd $  1,519.20  forecast $  4,451.99
+  josys-staging        (598628178244)  last $  6,606.07  mtd $  1,497.50  forecast $  4,238.83
+  josys-vpn            (924139482843)  last $  2,165.54  mtd $    481.61  forecast $  2,027.22
+  caf-rpa              (152426705810)  last $  2,100.60  mtd $    682.05  forecast $  1,911.16
+  idac-qa              (905418452628)  last $  3,280.35  mtd $    590.58  forecast $  1,895.04
+  jep-prod             (688567279148)  last $  3,209.05  mtd $    729.57  forecast $  1,593.54
+  idac-staging         (713881821705)  last $  2,490.34  mtd $    598.16  forecast $  1,501.68
+  jep-devqa            (147997136868)  last $  2,304.30  mtd $    604.14  forecast $  1,329.44
+  jep-stage            (463470957463)  last $  1,866.81  mtd $    474.51  forecast $    992.90

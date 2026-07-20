@@ -1,16 +1,10 @@
 {
-  "generated_at": "2026-06-25T11:13:08.354358+00:00",
-  "month_suffix": "202606",
+  "generated_at": "2026-07-16T04:24:59.402035+00:00",
+  "month_suffix": "202607",
   "history_month_count": 6,
   "org": {
     "metric": "NetAmortizedCost",
     "months": [
-      {
-        "month_suffix": "202512",
-        "label": "Dec 2025",
-        "total_usd": 193445.17,
-        "kind": "actual"
-      },
       {
         "month_suffix": "202601",
         "label": "Jan 2026",
@@ -44,7 +38,13 @@
       {
         "month_suffix": "202606",
         "label": "Jun 2026",
-        "total_usd": 121512.95,
+        "total_usd": 123947.01,
+        "kind": "actual"
+      },
+      {
+        "month_suffix": "202607",
+        "label": "Jul 2026",
+        "total_usd": 110748.76,
         "kind": "projected"
       }
     ]
@@ -55,12 +55,6 @@
       "account_id": "055184381049",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 16418.69,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -94,7 +88,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 13780.88,
+          "total_usd": 12228.08,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 47379.12,
           "kind": "projected"
         }
       ]
@@ -104,12 +104,6 @@
       "account_id": "137575128411",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 22078.84,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -143,7 +137,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 7778.23,
+          "total_usd": 7940.19,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 5015.22,
           "kind": "projected"
         }
       ]
@@ -153,12 +153,6 @@
       "account_id": "340752826805",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 45355.43,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -192,7 +186,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 14689.42,
+          "total_usd": 14001.32,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 4451.99,
           "kind": "projected"
         }
       ]
@@ -202,12 +202,6 @@
       "account_id": "905418452628",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 4222.26,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -241,7 +235,62 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 3112.83,
+          "total_usd": 3280.35,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 1895.04,
+          "kind": "projected"
+        }
+      ]
+    },
+    "713881821705": {
+      "name": "idac-staging",
+      "account_id": "713881821705",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 4162.6,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 3208.8,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 2850.67,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 2546.54,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 2340.25,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 2490.34,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 1501.68,
           "kind": "projected"
         }
       ]
@@ -251,12 +300,6 @@
       "account_id": "351343535468",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 34085.59,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -290,7 +333,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 31491.73,
+          "total_usd": 33099.77,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 22179.79,
           "kind": "projected"
         }
       ]
@@ -300,12 +349,6 @@
       "account_id": "637423183342",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 14552.19,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -339,7 +382,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 10464.17,
+          "total_usd": 10859.99,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 5919.17,
           "kind": "projected"
         }
       ]
@@ -349,12 +398,6 @@
       "account_id": "598628178244",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 14523.61,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -388,7 +431,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 5982.33,
+          "total_usd": 6606.07,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 4238.83,
           "kind": "projected"
         }
       ]
@@ -398,12 +447,6 @@
       "account_id": "152426705810",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 4212.05,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -437,7 +480,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 1825.32,
+          "total_usd": 2100.6,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 1911.16,
           "kind": "projected"
         }
       ]
@@ -447,12 +496,6 @@
       "account_id": "229468566969",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 9388.13,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -486,7 +529,62 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 16195.14,
+          "total_usd": 16923.73,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 7794.81,
+          "kind": "projected"
+        }
+      ]
+    },
+    "924139482843": {
+      "name": "josys-vpn",
+      "account_id": "924139482843",
+      "metric": "AmortizedCost",
+      "months": [
+        {
+          "month_suffix": "202601",
+          "label": "Jan 2026",
+          "total_usd": 1654.69,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202602",
+          "label": "Feb 2026",
+          "total_usd": 1915.69,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202603",
+          "label": "Mar 2026",
+          "total_usd": 2055.75,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202604",
+          "label": "Apr 2026",
+          "total_usd": 2056.21,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202605",
+          "label": "May 2026",
+          "total_usd": 2132.68,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202606",
+          "label": "Jun 2026",
+          "total_usd": 2165.54,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 2027.22,
           "kind": "projected"
         }
       ]
@@ -496,12 +594,6 @@
       "account_id": "147997136868",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 3398.92,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -535,7 +627,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 2171.34,
+          "total_usd": 2304.3,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 1329.44,
           "kind": "projected"
         }
       ]
@@ -545,12 +643,6 @@
       "account_id": "688567279148",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 3286.65,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -584,7 +676,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 3063.17,
+          "total_usd": 3209.05,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 1593.54,
           "kind": "projected"
         }
       ]
@@ -594,12 +692,6 @@
       "account_id": "463470957463",
       "metric": "AmortizedCost",
       "months": [
-        {
-          "month_suffix": "202512",
-          "label": "Dec 2025",
-          "total_usd": 2074.62,
-          "kind": "actual"
-        },
         {
           "month_suffix": "202601",
           "label": "Jan 2026",
@@ -633,7 +725,13 @@
         {
           "month_suffix": "202606",
           "label": "Jun 2026",
-          "total_usd": 1757.03,
+          "total_usd": 1866.81,
+          "kind": "actual"
+        },
+        {
+          "month_suffix": "202607",
+          "label": "Jul 2026",
+          "total_usd": 992.9,
           "kind": "projected"
         }
       ]

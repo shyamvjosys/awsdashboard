@@ -8,15 +8,21 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
   <style>
     :root {
-      --bg: #0f1419;
-      --panel: #1a2332;
-      --border: #2d3a4f;
-      --text: #e8edf4;
-      --muted: #8b9cb3;
-      --accent: #3b82f6;
-      --up: #f87171;
-      --down: #4ade80;
-      --flat: #94a3b8;
+      --josys-orange: hsl(24, 94%, 55%);
+      --josys-orange-hover: hsl(24, 94%, 48%);
+      --josys-orange-light: hsla(24, 94%, 55%, 0.12);
+      --josys-orange-ring: hsla(24, 94%, 55%, 0.28);
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --panel-alt: #f8f9fb;
+      --border: #e5e7eb;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --accent: var(--josys-orange);
+      --up: #dc2626;
+      --down: #16a34a;
+      --flat: #6b7280;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
     }
     * { box-sizing: border-box; }
     body {
@@ -28,10 +34,15 @@
     }
     header {
       padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--panel);
+      border-bottom: 3px solid var(--josys-orange);
+      background: var(--bg);
+      box-shadow: var(--shadow);
     }
-    header h1 { margin: 0 0 0.25rem; font-size: 1.35rem; }
+    header h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.35rem;
+      color: var(--text);
+    }
     header p { margin: 0; color: var(--muted); font-size: 0.9rem; }
     main { padding: 1.5rem; max-width: 1400px; margin: 0 auto; }
     .full-bleed {
@@ -64,11 +75,18 @@
     select {
       min-width: 220px;
       padding: 0.5rem 0.75rem;
-      background: var(--panel);
+      background: var(--bg);
       border: 1px solid var(--border);
       color: var(--text);
       border-radius: 6px;
       font-size: 0.95rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    select:hover { border-color: var(--josys-orange); }
+    select:focus {
+      outline: none;
+      border-color: var(--josys-orange);
+      box-shadow: 0 0 0 3px var(--josys-orange-light);
     }
     .cards {
       display: grid;
@@ -81,9 +99,10 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1rem;
+      box-shadow: var(--shadow);
     }
     .card .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; }
-    .card .value { font-size: 1.4rem; font-weight: 600; margin-top: 0.25rem; }
+    .card .value { font-size: 1.4rem; font-weight: 600; margin-top: 0.25rem; color: var(--text); }
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -96,11 +115,13 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1rem;
+      box-shadow: var(--shadow);
     }
     .panel h2 {
       margin: 0 0 1rem;
       font-size: 1rem;
       font-weight: 600;
+      color: var(--text);
     }
     table {
       width: 100%;
@@ -119,14 +140,15 @@
       user-select: none;
       white-space: nowrap;
     }
-    th.sortable:hover { color: var(--text); }
+    th.sortable:hover { color: var(--josys-orange); }
     th.sortable .sort-icon {
       display: inline-block;
       margin-left: 0.35rem;
-      opacity: 0.35;
+      opacity: 0.45;
       font-size: 0.65rem;
+      color: var(--josys-orange);
     }
-    th.sortable.active { color: var(--accent); }
+    th.sortable.active { color: var(--josys-orange); }
     th.sortable.active .sort-icon { opacity: 1; }
     td.num { text-align: right; font-variant-numeric: tabular-nums; }
     .trend-up { color: var(--up); }
@@ -137,9 +159,9 @@
       border-radius: 8px;
       padding: 1rem;
       margin-bottom: 0.75rem;
-      background: rgba(0,0,0,0.15);
+      background: var(--panel-alt);
     }
-    .rec h3 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+    .rec h3 { margin: 0 0 0.5rem; font-size: 0.95rem; color: var(--text); }
     .rec .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
     .rec ul { margin: 0.35rem 0 0 1.1rem; padding: 0; }
     .rec li { margin-bottom: 0.25rem; }
@@ -151,9 +173,9 @@
       font-weight: 600;
       text-transform: uppercase;
     }
-    .badge-up { background: rgba(248,113,113,0.2); color: var(--up); }
-    .badge-down { background: rgba(74,222,128,0.2); color: var(--down); }
-    .badge-source { background: rgba(59,130,246,0.2); color: var(--accent); }
+    .badge-up { background: hsla(0, 72%, 51%, 0.12); color: var(--up); }
+    .badge-down { background: hsla(142, 71%, 45%, 0.12); color: var(--down); }
+    .badge-source { background: var(--josys-orange-light); color: var(--josys-orange); }
     .empty, .error {
       padding: 2rem;
       text-align: center;
@@ -165,20 +187,25 @@
     .error { color: var(--up); }
     canvas { max-height: 320px; }
     tr.service-row.org-expandable { cursor: pointer; }
-    tr.service-row.org-expandable:hover td { background: rgba(59, 130, 246, 0.06); }
-    tr.service-row.expanded td { background: rgba(59, 130, 246, 0.1); }
+    tr.service-row.org-expandable:hover td { background: var(--josys-orange-light); }
+    tr.service-row.expanded td { background: var(--josys-orange-light); }
+    tr.account-row.org-expandable { cursor: pointer; }
+    tr.account-row.org-expandable:hover td { background: var(--josys-orange-light); }
+    tr.account-row.expanded td { background: var(--josys-orange-light); }
     .expand-icon {
       display: inline-block;
       width: 1rem;
       margin-right: 0.35rem;
-      color: var(--muted);
+      color: var(--josys-orange);
       font-size: 0.7rem;
+      opacity: 0.75;
     }
-    tr.service-row.expanded .expand-icon { color: var(--accent); }
+    tr.service-row.expanded .expand-icon { color: var(--josys-orange); opacity: 1; }
+    tr.account-row.expanded .expand-icon { color: var(--josys-orange); opacity: 1; }
     tr.accordion-row td {
       padding: 0;
       border-bottom: 1px solid var(--border);
-      background: rgba(0, 0, 0, 0.18);
+      background: var(--panel-alt);
     }
     .accordion-inner {
       padding: 0.75rem 1rem 1rem 1.75rem;
@@ -201,6 +228,62 @@
       width: 100%;
       height: 320px;
     }
+    .tab-bar {
+      display: flex;
+      gap: 0.25rem;
+      margin: -0.25rem 0 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-bar button {
+      background: transparent;
+      border: 1px solid transparent;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      padding: 0.55rem 1rem;
+      cursor: pointer;
+      margin-bottom: -1px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 6px 6px 0 0;
+      transition: color 0.15s, background 0.15s, border-color 0.15s;
+    }
+    .tab-bar button:hover {
+      color: var(--josys-orange);
+      background: var(--josys-orange-light);
+    }
+    .tab-bar button.active {
+      color: var(--josys-orange);
+      border-bottom-color: var(--josys-orange);
+      background: var(--josys-orange-light);
+      font-weight: 600;
+    }
+    .tab-bar button.hidden { display: none; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .tab-section-title {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .recommendations-section {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .recommendations-section h2 {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    code {
+      background: var(--josys-orange-light);
+      color: var(--josys-orange-hover);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.88em;
+    }
   </style>
 </head>
 <body>
@@ -217,14 +300,6 @@
     </div>
     {% else %}
     <div class="controls">
-      <label>
-        Month (yyyymm)
-        <select id="monthSelect">
-          {% for m in available_months %}
-          <option value="{{ m }}" {% if m == month_suffix %}selected{% endif %}>{{ m }}</option>
-          {% endfor %}
-        </select>
-      </label>
       <label>
         Linked Account
         <select id="accountSelect"></select>
@@ -259,33 +334,65 @@
     </div>
 
     <div class="panel" style="margin-bottom: 1.5rem;">
-      <h2>Service Comparison</h2>
-      <p id="comparisonHint" class="comparison-hint" style="display:none; margin:0 0 0.75rem; font-size:0.82rem; color:var(--muted);">
-        Click a service row to expand linked-account breakdown (organization view only).
-      </p>
-      <div style="overflow-x: auto;">
-        <table id="comparisonTable">
-          <thead>
-            <tr>
-              <th class="sortable" data-sort="service" data-type="string">Service <span class="sort-icon"></span></th>
-              <th class="sortable num" data-sort="last_month_total_usd" data-type="number">Last Month <span class="sort-icon"></span></th>
-              <th class="sortable num" data-sort="last_month_daily_avg_usd" data-type="number">Last Daily Avg <span class="sort-icon"></span></th>
-              <th class="sortable num" data-sort="mtd_total_usd" data-type="number">MTD <span class="sort-icon"></span></th>
-              <th class="sortable num" data-sort="mtd_daily_avg_usd" data-type="number">MTD Daily Avg <span class="sort-icon"></span></th>
-              <th class="sortable num" data-sort="delta_daily_usd" data-type="number">Δ Daily <span class="sort-icon"></span></th>
-              <th class="sortable num" data-sort="forecast_month_end_usd" data-type="number">Forecast <span class="sort-icon"></span></th>
-              <th class="sortable num" data-sort="forecast_vs_last_month_pct" data-type="number">Forecast % <span class="sort-icon"></span></th>
-              <th class="sortable" data-sort="trend" data-type="string">Trend <span class="sort-icon"></span></th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-tab="services">Services</button>
+        <button type="button" class="tab-btn" data-tab="linked-accounts" id="linkedAccountsTabBtn">Linked Accounts</button>
       </div>
-    </div>
 
-    <div class="panel">
-      <h2>Recommendations</h2>
-      <div id="recommendations"></div>
+      <div id="tab-services" class="tab-panel active">
+        <h2 class="tab-section-title">Services</h2>
+        <p id="comparisonHint" class="comparison-hint" style="display:none; margin:0 0 0.75rem; font-size:0.82rem; color:var(--muted);">
+          Click a service row to expand linked-account breakdown (organization view only).
+        </p>
+        <div style="overflow-x: auto;">
+          <table id="comparisonTable">
+            <thead>
+              <tr>
+                <th class="sortable" data-sort="service" data-type="string">Service <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="last_month_total_usd" data-type="number">Last Month <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="last_month_daily_avg_usd" data-type="number">Last Daily Avg <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="mtd_total_usd" data-type="number">MTD <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="mtd_daily_avg_usd" data-type="number">MTD Daily Avg <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="delta_daily_usd" data-type="number">Δ Daily <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="forecast_month_end_usd" data-type="number">Forecast <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="forecast_vs_last_month_pct" data-type="number">Forecast % <span class="sort-icon"></span></th>
+                <th class="sortable" data-sort="trend" data-type="string">Trend <span class="sort-icon"></span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="recommendations-section">
+          <h2>Recommendations</h2>
+          <div id="recommendations"></div>
+        </div>
+      </div>
+
+      <div id="tab-linked-accounts" class="tab-panel">
+        <h2 class="tab-section-title">Linked Accounts</h2>
+        <p id="linkedAccountsHint" style="margin:0 0 0.75rem; font-size:0.82rem; color:var(--muted);">
+          Click a linked account row to expand service breakdown.
+        </p>
+        <div style="overflow-x: auto;">
+          <table id="linkedAccountsTable">
+            <thead>
+              <tr>
+                <th class="sortable" data-sort="account_name" data-type="string">Linked Account <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="last_month_total_usd" data-type="number">Last Month <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="last_month_daily_avg_usd" data-type="number">Last Daily Avg <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="mtd_total_usd" data-type="number">MTD <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="mtd_daily_avg_usd" data-type="number">MTD Daily Avg <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="delta_daily_usd" data-type="number">Δ Daily <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="forecast_month_end_usd" data-type="number">Forecast <span class="sort-icon"></span></th>
+                <th class="sortable num" data-sort="forecast_vs_last_month_pct" data-type="number">Forecast % <span class="sort-icon"></span></th>
+                <th class="sortable" data-sort="trend" data-type="string">Trend <span class="sort-icon"></span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
     </div>
     {% endif %}
   </main>
@@ -296,7 +403,7 @@
       Chart.register(ChartDataLabels);
     }
 
-    const monthSelect = document.getElementById("monthSelect");
+    const REPORT_MONTH = "{{ month_suffix }}";
     const accountSelect = document.getElementById("accountSelect");
     const serviceSelect = document.getElementById("serviceSelect");
     let trendChart = null;
@@ -304,15 +411,33 @@
     let monthlyTrendChart = null;
     let comparisonRows = [];
     let serviceAccountBreakdown = {};
+    let accountComparisonRows = [];
+    let accountServiceBreakdown = {};
     let currentAccountId = "org";
     let expandedService = null;
+    let expandedAccountId = null;
     let sortColumn = "delta_daily_usd";
     let sortDirection = "desc";
+    let linkedSortColumn = "delta_daily_usd";
+    let linkedSortDirection = "desc";
+    let activeTab = "services";
     const accordionSortState = {};
+    const accountAccordionSortState = {};
+
+    const THEME = {
+      orange: "hsl(24, 94%, 55%)",
+      orangeLight: "hsla(24, 94%, 55%, 0.15)",
+      orangeMuted: "hsla(24, 94%, 55%, 0.55)",
+      text: "#1a1a2e",
+      muted: "#6b7280",
+      grid: "#e5e7eb",
+      up: "#dc2626",
+      down: "#16a34a",
+      slate: "#9ca3af",
+    };
 
     const TREND_ORDER = { up: 0, flat: 1, down: 2 };
-    const ACCOUNT_TABLE_COLUMNS = [
-      { key: "account_name", label: "Linked Account", string: true },
+    const METRIC_COLUMNS = [
       { key: "last_month_total_usd", label: "Last Month", num: true },
       { key: "last_month_daily_avg_usd", label: "Last Daily Avg", num: true },
       { key: "mtd_total_usd", label: "MTD", num: true },
@@ -321,6 +446,14 @@
       { key: "forecast_month_end_usd", label: "Forecast", num: true },
       { key: "forecast_vs_last_month_pct", label: "Forecast %", num: true, pct: true },
       { key: "trend", label: "Trend", trend: true },
+    ];
+    const ACCOUNT_TABLE_COLUMNS = [
+      { key: "account_name", label: "Linked Account", string: true },
+      ...METRIC_COLUMNS,
+    ];
+    const SERVICE_TABLE_COLUMNS = [
+      { key: "service", label: "Service", string: true },
+      ...METRIC_COLUMNS,
     ];
 
     function escapeHtml(text) {
@@ -377,10 +510,9 @@
     }
 
     async function loadData() {
-      const month = monthSelect.value;
       const account = accountSelect.value || "org";
       const service = serviceSelect.value;
-      const params = new URLSearchParams({ month, account });
+      const params = new URLSearchParams({ month: REPORT_MONTH, account });
       if (service) params.set("service", service);
 
       const resp = await fetch("/api/data?" + params.toString());
@@ -395,7 +527,8 @@
     function render(data) {
       const periods = data.periods || {};
       document.getElementById("subtitle").textContent =
-        `Metric: ${data.metric || "n/a"} | Generated: ${data.generated_at || "n/a"} | ` +
+        `Spend metric: ${data.metric || "n/a"} | Forecast: ${data.forecast_metric || "n/a"} (AWS Cost Explorer) | ` +
+        `Generated: ${data.generated_at || "n/a"} | ` +
         `${periods.last_month?.label || ""} vs ${periods.current_mtd?.label || ""} MTD`;
 
       // Populate account dropdown once per load (preserve selection)
@@ -433,15 +566,27 @@
 
       comparisonRows = data.comparison || [];
       serviceAccountBreakdown = data.service_account_breakdown || {};
+      accountComparisonRows = data.account_comparison || [];
+      accountServiceBreakdown = data.account_service_breakdown || {};
       currentAccountId = data.account_id || "org";
       if (currentAccountId !== "org") {
         expandedService = null;
+        expandedAccountId = null;
+        if (activeTab === "linked-accounts") {
+          activeTab = "services";
+        }
       }
       document.getElementById("comparisonHint").style.display =
         currentAccountId === "org" ? "block" : "none";
+      document.getElementById("linkedAccountsTabBtn").classList.toggle(
+        "hidden",
+        currentAccountId !== "org"
+      );
+      updateTabPanels();
 
       renderMonthlyTrendChart(data);
       renderComparisonTable();
+      renderLinkedAccountsTable();
       const chartRows = [...comparisonRows]
         .sort((a, b) => Math.abs(b.delta_daily_usd) - Math.abs(a.delta_daily_usd))
         .slice(0, 15);
@@ -455,10 +600,12 @@
       const titleEl = document.getElementById("monthlyTrendTitle");
       const subtitleEl = document.getElementById("monthlyTrendSubtitle");
 
-      titleEl.textContent = `Monthly Billing Trend — ${data.account_name || "Organization"}`;
+      titleEl.textContent = data.service_filter
+        ? `Monthly Billing Trend — ${data.account_name || "Organization"} · ${data.service_filter}`
+        : `Monthly Billing Trend — ${data.account_name || "Organization"}`;
       subtitleEl.textContent = months.length
-        ? `Last ${months.length - 1} full months (actual) · current month (projected) · metric: ${trend.metric || data.metric || "n/a"}`
-        : "Monthly trend data not available. Run: python3 generate_billing_trend_report.py --force";
+        ? `Last ${months.length - 1} full months (actual) · current month projected · spend metric: ${trend.metric || data.metric || "n/a"}`
+        : "Monthly trend data not available. Run: python3 generate_billing_trend_report.py";
 
       if (monthlyTrendChart) {
         monthlyTrendChart.destroy();
@@ -483,14 +630,14 @@
       const projectedUp = projected && lastActual
         ? projected.total_usd > lastActual.total_usd
         : false;
-      const projectedColor = projectedUp ? "#f87171" : "#4ade80";
+      const projectedColor = projectedUp ? THEME.up : THEME.down;
 
       const datalabelOpts = {
         display: (ctx) => ctx.dataset.data[ctx.dataIndex] != null,
         anchor: "end",
         align: "top",
         offset: 4,
-        color: "#e8edf4",
+        color: THEME.text,
         font: { size: 11, weight: "600" },
         formatter: (v) => fmtShortCurrency(v),
       };
@@ -503,9 +650,9 @@
             {
               label: "Actual bill",
               data: actuals,
-              borderColor: "#3b82f6",
-              backgroundColor: "rgba(59, 130, 246, 0.15)",
-              pointBackgroundColor: "#3b82f6",
+              borderColor: THEME.orange,
+              backgroundColor: THEME.orangeLight,
+              pointBackgroundColor: THEME.orange,
               pointRadius: 5,
               pointHoverRadius: 6,
               borderWidth: 2.5,
@@ -518,11 +665,11 @@
               data: bridge,
               borderColor: projectedColor,
               backgroundColor: projectedUp
-                ? "rgba(248, 113, 113, 0.12)"
-                : "rgba(74, 222, 128, 0.12)",
+                ? "rgba(220, 38, 38, 0.1)"
+                : "rgba(22, 163, 74, 0.1)",
               pointBackgroundColor: projectedColor,
               pointRadius: (ctx) => (months[ctx.dataIndex]?.kind === "projected" ? 6 : 5),
-              pointBorderColor: "#e8edf4",
+              pointBorderColor: "#ffffff",
               pointBorderWidth: (ctx) => (months[ctx.dataIndex]?.kind === "projected" ? 2 : 0),
               borderWidth: 2.5,
               borderDash: [6, 4],
@@ -542,7 +689,7 @@
           layout: { padding: { top: 28 } },
           plugins: {
             legend: {
-              labels: { color: "#e8edf4", boxWidth: 14 },
+              labels: { color: THEME.text, boxWidth: 14 },
             },
             datalabels: { clip: false },
             tooltip: {
@@ -557,15 +704,15 @@
           },
           scales: {
             x: {
-              ticks: { color: "#8b9cb3" },
-              grid: { color: "rgba(45, 58, 79, 0.5)" },
+              ticks: { color: THEME.muted },
+              grid: { color: THEME.grid },
             },
             y: {
               ticks: {
-                color: "#8b9cb3",
+                color: THEME.muted,
                 callback: (v) => fmtShortCurrency(v),
               },
-              grid: { color: "#2d3a4f" },
+              grid: { color: THEME.grid },
             },
           },
         },
@@ -608,13 +755,20 @@
       return sortGeneric(rows, sortColumn, sortDirection, "service");
     }
 
+    function sortLinkedRows(rows) {
+      return sortGeneric(rows, linkedSortColumn, linkedSortDirection, "account_name");
+    }
+
     function getAccordionSort(service) {
       return accordionSortState[service] || { column: "delta_daily_usd", direction: "desc" };
     }
 
-    function renderAccountCell(row) {
+    function getAccountAccordionSort(accountId) {
+      return accountAccordionSortState[accountId] || { column: "delta_daily_usd", direction: "desc" };
+    }
+
+    function renderMetricCells(row) {
       return `
-        <td>${escapeHtml(row.account_name)}</td>
         <td class="num">${fmt(row.last_month_total_usd)}</td>
         <td class="num">${fmt(row.last_month_daily_avg_usd)}</td>
         <td class="num">${fmt(row.mtd_total_usd)}</td>
@@ -626,30 +780,68 @@
       `;
     }
 
-    function renderAccordionTable(service) {
-      const accounts = serviceAccountBreakdown[service] || [];
-      const sortState = getAccordionSort(service);
-      const sorted = sortGeneric(accounts, sortState.column, sortState.direction, "account_name");
-      const header = ACCOUNT_TABLE_COLUMNS.map(col => {
+    function renderAccountCell(row) {
+      return `<td>${escapeHtml(row.account_name)}</td>${renderMetricCells(row)}`;
+    }
+
+    function renderServiceCell(row) {
+      return `<td>${escapeHtml(row.service)}</td>${renderMetricCells(row)}`;
+    }
+
+    function renderBreakdownTable(columns, rows, sortState, contextKey, contextValue, title) {
+      const sorted = sortGeneric(rows, sortState.column, sortState.direction, columns[0].key);
+      const header = columns.map(col => {
         const active = sortState.column === col.key;
         const icon = active ? (sortState.direction === "asc" ? "▲" : "▼") : "⇅";
         const cls = ["sortable", col.num ? "num" : "", active ? "active" : ""].filter(Boolean).join(" ");
-        return `<th class="${cls}" data-service="${escapeHtml(service)}" data-sort="${col.key}">${col.label} <span class="sort-icon">${icon}</span></th>`;
+        return `<th class="${cls}" data-${contextKey}="${escapeHtml(contextValue)}" data-sort="${col.key}">${col.label} <span class="sort-icon">${icon}</span></th>`;
       }).join("");
 
       const body = sorted.length
-        ? sorted.map(row => `<tr>${renderAccountCell(row)}</tr>`).join("")
-        : '<tr><td colspan="9" class="empty">No linked-account spend for this service.</td></tr>';
+        ? sorted.map(row => `<tr>${columns === SERVICE_TABLE_COLUMNS ? renderServiceCell(row) : renderAccountCell(row)}</tr>`).join("")
+        : `<tr><td colspan="9" class="empty">${title.emptyMessage}</td></tr>`;
 
       return `
         <div class="accordion-inner">
-          <h3>Linked accounts — ${escapeHtml(service)}</h3>
-          <table class="account-breakdown-table" data-service="${escapeHtml(service)}">
+          <h3>${title.heading}</h3>
+          <table class="account-breakdown-table" data-${contextKey}="${escapeHtml(contextValue)}">
             <thead><tr>${header}</tr></thead>
             <tbody>${body}</tbody>
           </table>
         </div>
       `;
+    }
+
+    function renderAccordionTable(service) {
+      const accounts = serviceAccountBreakdown[service] || [];
+      const sortState = getAccordionSort(service);
+      return renderBreakdownTable(
+        ACCOUNT_TABLE_COLUMNS,
+        accounts,
+        sortState,
+        "service",
+        service,
+        {
+          heading: `Linked accounts — ${service}`,
+          emptyMessage: "No linked-account spend for this service.",
+        }
+      );
+    }
+
+    function renderAccountServicesTable(accountId, accountName) {
+      const services = accountServiceBreakdown[accountId] || [];
+      const sortState = getAccountAccordionSort(accountId);
+      return renderBreakdownTable(
+        SERVICE_TABLE_COLUMNS,
+        services,
+        sortState,
+        "account",
+        accountId,
+        {
+          heading: `Services — ${accountName}`,
+          emptyMessage: "No service spend for this linked account.",
+        }
+      );
     }
 
     function renderComparisonTable() {
@@ -700,6 +892,47 @@
       updateSortHeaders();
     }
 
+    function renderLinkedAccountsTable() {
+      const sorted = sortLinkedRows(accountComparisonRows);
+      const tbody = document.querySelector("#linkedAccountsTable tbody");
+
+      if (!sorted.length) {
+        tbody.innerHTML = '<tr><td colspan="9" class="empty">No linked accounts for the current filters.</td></tr>';
+      } else {
+        const parts = [];
+        sorted.forEach(r => {
+          const accountId = r.account_id;
+          const isExpanded = expandedAccountId === accountId;
+          const hasBreakdown = (accountServiceBreakdown[accountId] || []).length > 0;
+          const rowClass = [
+            "account-row",
+            hasBreakdown ? "org-expandable" : "",
+            isExpanded ? "expanded" : "",
+          ].filter(Boolean).join(" ");
+          const expandIcon = hasBreakdown
+            ? `<span class="expand-icon">${isExpanded ? "▼" : "▶"}</span>`
+            : '<span class="expand-icon"></span>';
+
+          parts.push(`
+            <tr class="${rowClass}" data-account-id="${escapeHtml(accountId)}">
+              <td>${expandIcon}${escapeHtml(r.account_name)}</td>
+              ${renderMetricCells(r).trim()}
+            </tr>
+          `);
+
+          if (isExpanded) {
+            parts.push(`
+              <tr class="accordion-row" data-account-id="${escapeHtml(accountId)}">
+                <td colspan="9">${renderAccountServicesTable(accountId, r.account_name)}</td>
+              </tr>
+            `);
+          }
+        });
+        tbody.innerHTML = parts.join("");
+      }
+      updateLinkedSortHeaders();
+    }
+
     function updateSortHeaders() {
       document.querySelectorAll("#comparisonTable > thead th.sortable").forEach(th => {
         const col = th.dataset.sort;
@@ -711,6 +944,38 @@
           icon.textContent = "⇅";
         }
       });
+    }
+
+    function updateLinkedSortHeaders() {
+      document.querySelectorAll("#linkedAccountsTable > thead th.sortable").forEach(th => {
+        const col = th.dataset.sort;
+        const icon = th.querySelector(".sort-icon");
+        th.classList.toggle("active", col === linkedSortColumn);
+        if (col === linkedSortColumn) {
+          icon.textContent = linkedSortDirection === "asc" ? "▲" : "▼";
+        } else {
+          icon.textContent = "⇅";
+        }
+      });
+    }
+
+    function updateTabPanels() {
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === activeTab);
+      });
+      document.getElementById("tab-services").classList.toggle("active", activeTab === "services");
+      document.getElementById("tab-linked-accounts").classList.toggle(
+        "active",
+        activeTab === "linked-accounts"
+      );
+    }
+
+    function setActiveTab(tabName) {
+      if (tabName === "linked-accounts" && currentAccountId !== "org") {
+        return;
+      }
+      activeTab = tabName;
+      updateTabPanels();
     }
 
     function renderCharts(rows) {
@@ -728,16 +993,16 @@
         data: {
           labels,
           datasets: [
-            { label: "Last month daily avg", data: lastDaily, backgroundColor: "rgba(148,163,184,0.7)" },
-            { label: "MTD daily avg", data: mtdDaily, backgroundColor: "rgba(59,130,246,0.8)" },
+            { label: "Last month daily avg", data: lastDaily, backgroundColor: THEME.slate },
+            { label: "MTD daily avg", data: mtdDaily, backgroundColor: THEME.orange },
           ],
         },
         options: {
           responsive: true,
-          plugins: { legend: { labels: { color: "#e8edf4" } } },
+          plugins: { legend: { labels: { color: THEME.text } } },
           scales: {
-            x: { ticks: { color: "#8b9cb3", maxRotation: 45 } },
-            y: { ticks: { color: "#8b9cb3" }, grid: { color: "#2d3a4f" } },
+            x: { ticks: { color: THEME.muted, maxRotation: 45 }, grid: { color: THEME.grid } },
+            y: { ticks: { color: THEME.muted }, grid: { color: THEME.grid } },
           },
         },
       });
@@ -748,16 +1013,16 @@
         data: {
           labels: forecastLabels,
           datasets: [
-            { label: "Forecast month-end", data: forecasts, backgroundColor: "rgba(74,222,128,0.65)" },
+            { label: "Forecast month-end", data: forecasts, backgroundColor: THEME.orangeMuted },
           ],
         },
         options: {
           indexAxis: "y",
           responsive: true,
-          plugins: { legend: { labels: { color: "#e8edf4" } } },
+          plugins: { legend: { labels: { color: THEME.text } } },
           scales: {
-            x: { ticks: { color: "#8b9cb3" }, grid: { color: "#2d3a4f" } },
-            y: { ticks: { color: "#8b9cb3" } },
+            x: { ticks: { color: THEME.muted }, grid: { color: THEME.grid } },
+            y: { ticks: { color: THEME.muted }, grid: { color: THEME.grid } },
           },
         },
       });
@@ -801,7 +1066,7 @@
 
     document.querySelector("#comparisonTable tbody").addEventListener("click", (e) => {
       const sortTh = e.target.closest(".account-breakdown-table th.sortable");
-      if (sortTh) {
+      if (sortTh && sortTh.dataset.service) {
         e.stopPropagation();
         const service = sortTh.dataset.service;
         const col = sortTh.dataset.sort;
@@ -825,7 +1090,49 @@
       renderComparisonTable();
     });
 
-    monthSelect.addEventListener("change", loadData);
+    document.querySelectorAll("#linkedAccountsTable > thead th.sortable").forEach(th => {
+      th.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const col = th.dataset.sort;
+        if (linkedSortColumn === col) {
+          linkedSortDirection = linkedSortDirection === "asc" ? "desc" : "asc";
+        } else {
+          linkedSortColumn = col;
+          linkedSortDirection = col === "account_name" || col === "trend" ? "asc" : "desc";
+        }
+        renderLinkedAccountsTable();
+      });
+    });
+
+    document.querySelector("#linkedAccountsTable tbody").addEventListener("click", (e) => {
+      const sortTh = e.target.closest(".account-breakdown-table th.sortable");
+      if (sortTh && sortTh.dataset.account) {
+        e.stopPropagation();
+        const accountId = sortTh.dataset.account;
+        const col = sortTh.dataset.sort;
+        const state = getAccountAccordionSort(accountId);
+        if (state.column === col) {
+          state.direction = state.direction === "asc" ? "desc" : "asc";
+        } else {
+          state.column = col;
+          state.direction = col === "service" || col === "trend" ? "asc" : "desc";
+        }
+        accountAccordionSortState[accountId] = state;
+        renderLinkedAccountsTable();
+        return;
+      }
+
+      const row = e.target.closest("tr.account-row.org-expandable");
+      if (!row) return;
+      const accountId = row.dataset.accountId;
+      expandedAccountId = expandedAccountId === accountId ? null : accountId;
+      renderLinkedAccountsTable();
+    });
+
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => setActiveTab(btn.dataset.tab));
+    });
+
     accountSelect.addEventListener("change", loadData);
     serviceSelect.addEventListener("change", loadData);
     loadData();

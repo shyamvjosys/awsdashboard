@@ -1,0 +1,2392 @@
+{
+  "generated_at": "2026-07-08T06:21:37.147360+00:00",
+  "month_suffix": "202607",
+  "metric": "NetAmortizedCost",
+  "recommendation_count": 126,
+  "items": [
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Tax",
+      "trend": "up",
+      "delta_daily_usd": 266.3,
+      "summary": "Tax daily spend is $266.30/day higher than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "NoUsageType: decreased by $5,302.41 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for Tax and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "AWS Support (Enterprise)",
+      "trend": "up",
+      "delta_daily_usd": 252.96,
+      "summary": "AWS Support (Enterprise) daily spend is $252.96/day higher than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "Dollar: decreased by $5,036.40 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for AWS Support (Enterprise) and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon Elastic Container Service",
+      "trend": "down",
+      "delta_daily_usd": -148.05,
+      "summary": "Amazon Elastic Container Service daily spend is $148.05/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-Fargate-vCPU-Hours:perCPU: decreased by $10,062.51 (MTD vs last month usage mix)",
+        "USE2-Fargate-vCPU-Hours:perCPU: decreased by $2,822.73 (MTD vs last month usage mix)",
+        "APN1-Fargate-GB-Hours: decreased by $2,391.84 (MTD vs last month usage mix)",
+        "USE2-Fargate-GB-Hours: decreased by $832.39 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $115.64 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify scaled-down services or reduced task counts."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -105.18,
+      "summary": "Amazon Relational Database Service daily spend is $105.18/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r7g.2xl: decreased by $2,163.61 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $1,524.72 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.r6g.xl: decreased by $1,398.65 (MTD vs last month usage mix)",
+        "APN1-InstanceUsageIOOptimized:db.r6g.2xl: decreased by $905.31 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageIOUsage: decreased by $880.46 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Savings Plans for AWS Compute usage",
+      "trend": "up",
+      "delta_daily_usd": 104.79,
+      "summary": "Savings Plans for AWS Compute usage daily spend is $104.79/day higher than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "ComputeSP:1yrNoUpfront: increased by $587.99 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for Savings Plans for AWS Compute usage and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -81.92,
+      "summary": "AmazonCloudWatch daily spend is $81.92/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-DataProcessing-Bytes: decreased by $2,888.54 (MTD vs last month usage mix)",
+        "APN1-CW:GMD-Metrics: decreased by $1,503.41 (MTD vs last month usage mix)",
+        "APN1-CW:MetricStreamUsage: decreased by $1,149.10 (MTD vs last month usage mix)",
+        "APN1-CW:MetricMonitorUsage: decreased by $732.20 (MTD vs last month usage mix)",
+        "USE2-CW:MetricStreamUsage: decreased by $698.81 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -66.92,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $66.92/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.2xlarge: decreased by $2,886.36 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:m5.xlarge: decreased by $2,631.29 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:c6g.2xlarge: decreased by $1,210.25 (MTD vs last month usage mix)",
+        "USE2-BoxUsage:m5.xlarge: decreased by $650.43 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:m6g.2xlarge: decreased by $426.98 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon DocumentDB (with MongoDB compatibility)",
+      "trend": "down",
+      "delta_daily_usd": -42.69,
+      "summary": "Amazon DocumentDB (with MongoDB compatibility) daily spend is $42.69/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r6g.large: decreased by $3,154.56 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $1,188.48 (MTD vs last month usage mix)",
+        "APN1-StorageIOUsage: decreased by $707.32 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.r6g.xl: decreased by $646.89 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t3.medium: decreased by $587.40 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon DocumentDB (with MongoDB compatibility)."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -33.99,
+      "summary": "EC2 - Other daily spend is $33.99/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-DataTransfer-Regional-Bytes: decreased by $1,481.38 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Hours: decreased by $1,198.23 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Bytes: decreased by $1,047.49 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp3: decreased by $457.19 (MTD vs last month usage mix)",
+        "APN1-USE1-AWS-Out-Bytes: decreased by $392.51 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Grafana Cloud observability: Grafana, Prometheus metrics, logs, traces",
+      "trend": "up",
+      "delta_daily_usd": 31.58,
+      "summary": "Grafana Cloud observability: Grafana, Prometheus metrics, logs, traces daily spend is $31.58/day higher than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "MP:payg-Units: decreased by $620.00 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for Grafana Cloud observability: Grafana, Prometheus metrics, logs, traces and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon Managed Streaming for Apache Kafka",
+      "trend": "down",
+      "delta_daily_usd": -29.42,
+      "summary": "Amazon Managed Streaming for Apache Kafka daily spend is $29.42/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-Kafka.m5.large: decreased by $1,378.74 (MTD vs last month usage mix)",
+        "APN1-Kafka.t3.small: decreased by $808.75 (MTD vs last month usage mix)",
+        "USE2-Kafka.m5.large: decreased by $427.36 (MTD vs last month usage mix)",
+        "APN1-Kafka.Storage.GP2: decreased by $292.99 (MTD vs last month usage mix)",
+        "USE2-Kafka.t3.small: decreased by $69.60 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify broker reductions or cluster changes."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon Elastic Load Balancing",
+      "trend": "down",
+      "delta_daily_usd": -22.97,
+      "summary": "Amazon Elastic Load Balancing daily spend is $22.97/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-LoadBalancerUsage: decreased by $1,842.83 (MTD vs last month usage mix)",
+        "USE2-LoadBalancerUsage: decreased by $286.18 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $42.09 (MTD vs last month usage mix)",
+        "APN1-LCUUsage: decreased by $20.13 (MTD vs last month usage mix)",
+        "APS3-LoadBalancerUsage: decreased by $13.53 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Elastic Load Balancing."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon Virtual Private Cloud",
+      "trend": "down",
+      "delta_daily_usd": -22.18,
+      "summary": "Amazon Virtual Private Cloud daily spend is $22.18/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-PublicIPv4:InUseAddress: decreased by $1,013.51 (MTD vs last month usage mix)",
+        "APN1-ClientVPN-EndpointHours: decreased by $686.83 (MTD vs last month usage mix)",
+        "APN1-ClientVPN-ConnectionHours: decreased by $371.72 (MTD vs last month usage mix)",
+        "APN1-VpcEndpoint-Hours: decreased by $327.08 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $183.04 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Virtual Private Cloud."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon OpenSearch Service",
+      "trend": "down",
+      "delta_daily_usd": -19.29,
+      "summary": "Amazon OpenSearch Service daily spend is $19.29/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-ESInstance:t3.medium: decreased by $1,073.16 (MTD vs last month usage mix)",
+        "USE2-ESInstance:t3.medium: decreased by $185.70 (MTD vs last month usage mix)",
+        "APN1-ES:GP3-Storage: decreased by $129.36 (MTD vs last month usage mix)",
+        "APN1-SearchOCU: decreased by $84.81 (MTD vs last month usage mix)",
+        "APN1-IndexingOCU: decreased by $84.81 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon OpenSearch Service."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "org",
+      "account_name": "Organization (all accounts)",
+      "service": "Amazon ElastiCache",
+      "trend": "down",
+      "delta_daily_usd": -15.39,
+      "summary": "Amazon ElastiCache daily spend is $15.39/day lower than last month's average for Organization (all accounts).",
+      "likely_causes": [
+        "APN1-NodeUsage:cache.t3.micro: decreased by $479.38 (MTD vs last month usage mix)",
+        "APN1-NodeUsage:cache.t3.medium: decreased by $419.13 (MTD vs last month usage mix)",
+        "APN1-NodeUsage:cache.t4g.micro: decreased by $188.69 (MTD vs last month usage mix)",
+        "USE2-NodeUsage:cache.t3.medium: decreased by $172.98 (MTD vs last month usage mix)",
+        "APN1-NodeUsage:cache.t4g.small: decreased by $49.86 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon ElastiCache."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "055184381049",
+      "account_name": "josys-master",
+      "service": "Tax",
+      "trend": "up",
+      "delta_daily_usd": 317.37,
+      "summary": "Tax daily spend is $317.37/day higher than last month's average for josys-master.",
+      "likely_causes": [
+        "NoUsageType: increased by $138.93 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for Tax and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "055184381049",
+      "account_name": "josys-master",
+      "service": "AWS Support (Enterprise)",
+      "trend": "up",
+      "delta_daily_usd": 252.96,
+      "summary": "AWS Support (Enterprise) daily spend is $252.96/day higher than last month's average for josys-master.",
+      "likely_causes": [
+        "Dollar: decreased by $5,036.40 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for AWS Support (Enterprise) and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "055184381049",
+      "account_name": "josys-master",
+      "service": "Savings Plans for AWS Compute usage",
+      "trend": "up",
+      "delta_daily_usd": 136.43,
+      "summary": "Savings Plans for AWS Compute usage daily spend is $136.43/day higher than last month's average for josys-master.",
+      "likely_causes": [
+        "ComputeSP:1yrNoUpfront: increased by $2,508.87 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for Savings Plans for AWS Compute usage and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "055184381049",
+      "account_name": "josys-master",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -58.47,
+      "summary": "Amazon Relational Database Service daily spend is $58.47/day lower than last month's average for josys-master.",
+      "likely_causes": [
+        "APN1-HeavyUsage:db.r7g.large: decreased by $160.49 (MTD vs last month usage mix)",
+        "APN1-HeavyUsage:db.r6g.large: decreased by $113.47 (MTD vs last month usage mix)",
+        "APN1-HeavyUsage:db.t4g.medium: decreased by $89.54 (MTD vs last month usage mix)",
+        "USE2-HeavyUsage:db.t4g.medium: decreased by $36.27 (MTD vs last month usage mix)",
+        "USE2-HeavyUsage:db.r7g.large: decreased by $33.33 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "055184381049",
+      "account_name": "josys-master",
+      "service": "Grafana Cloud observability: Grafana, Prometheus metrics, logs, traces",
+      "trend": "up",
+      "delta_daily_usd": 31.58,
+      "summary": "Grafana Cloud observability: Grafana, Prometheus metrics, logs, traces daily spend is $31.58/day higher than last month's average for josys-master.",
+      "likely_causes": [
+        "MP:payg-Units: decreased by $620.00 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for Grafana Cloud observability: Grafana, Prometheus metrics, logs, traces and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon EC2 Container Registry (ECR)",
+      "trend": "up",
+      "delta_daily_usd": 18.27,
+      "summary": "Amazon EC2 Container Registry (ECR) daily spend is $18.27/day higher than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-USW2-AWS-Out-Bytes: increased by $152.17 (MTD vs last month usage mix)",
+        "APN1-TimedStorage-ByteHrs: decreased by $132.54 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for Amazon EC2 Container Registry (ECR) and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -9.69,
+      "summary": "Amazon Relational Database Service daily spend is $9.69/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r6g.large: decreased by $151.61 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t3.medium: decreased by $112.77 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $52.49 (MTD vs last month usage mix)",
+        "APN1-Aurora:BackupUsage: decreased by $45.48 (MTD vs last month usage mix)",
+        "APN1-InstanceUsageIOOptimized:db.t3.medium: decreased by $36.74 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon DocumentDB (with MongoDB compatibility)",
+      "trend": "down",
+      "delta_daily_usd": -8.52,
+      "summary": "Amazon DocumentDB (with MongoDB compatibility) daily spend is $8.52/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r6g.large: decreased by $485.17 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t3.medium: decreased by $242.61 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $100.57 (MTD vs last month usage mix)",
+        "APN1-StorageIOUsage: decreased by $64.65 (MTD vs last month usage mix)",
+        "APN1-StorageUsage: decreased by $29.45 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon DocumentDB (with MongoDB compatibility)."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon Elastic Container Service",
+      "trend": "down",
+      "delta_daily_usd": -7.86,
+      "summary": "Amazon Elastic Container Service daily spend is $7.86/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-Fargate-vCPU-Hours:perCPU: decreased by $474.11 (MTD vs last month usage mix)",
+        "APN1-Fargate-GB-Hours: decreased by $104.73 (MTD vs last month usage mix)",
+        "APN1-SpotUsage-Fargate-vCPU-Hours:perCPU: decreased by $62.73 (MTD vs last month usage mix)",
+        "APN1-SpotUsage-Fargate-GB-Hours: decreased by $13.73 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $8.28 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify scaled-down services or reduced task counts."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -5.74,
+      "summary": "AmazonCloudWatch daily spend is $5.74/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-CW:MetricMonitorUsage: decreased by $299.17 (MTD vs last month usage mix)",
+        "APN1-CW:AlarmMonitorUsage: decreased by $47.74 (MTD vs last month usage mix)",
+        "DashboardsUsageHour-Basic: decreased by $36.56 (MTD vs last month usage mix)",
+        "APN1-DataProcessing-Bytes: decreased by $25.67 (MTD vs last month usage mix)",
+        "DashboardsUsageHour: decreased by $10.68 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon Managed Streaming for Apache Kafka",
+      "trend": "down",
+      "delta_daily_usd": -5.54,
+      "summary": "Amazon Managed Streaming for Apache Kafka daily spend is $5.54/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-Kafka.m5.large: decreased by $275.75 (MTD vs last month usage mix)",
+        "APN1-Kafka.t3.small: decreased by $138.81 (MTD vs last month usage mix)",
+        "APN1-Kafka.Storage.GP2: decreased by $56.11 (MTD vs last month usage mix)",
+        "APN1-Kafka.PrivateConnectivityHours: decreased by $12.37 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.01 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify broker reductions or cluster changes."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -5.15,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $5.15/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.2xlarge: decreased by $384.59 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.large: decreased by $74.16 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t2.large: decreased by $51.53 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3.medium: decreased by $31.74 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3a.medium: decreased by $31.31 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon Elastic Load Balancing",
+      "trend": "down",
+      "delta_daily_usd": -4.82,
+      "summary": "Amazon Elastic Load Balancing daily spend is $4.82/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-LoadBalancerUsage: decreased by $401.11 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $37.52 (MTD vs last month usage mix)",
+        "APS3-LoadBalancerUsage: decreased by $13.53 (MTD vs last month usage mix)",
+        "APS2-LoadBalancerUsage: decreased by $12.82 (MTD vs last month usage mix)",
+        "APN1-LCUUsage: decreased by $3.79 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Elastic Load Balancing."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon OpenSearch Service",
+      "trend": "down",
+      "delta_daily_usd": -4.43,
+      "summary": "Amazon OpenSearch Service daily spend is $4.43/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-ESInstance:t3.medium: decreased by $187.43 (MTD vs last month usage mix)",
+        "APN1-IndexingOCU: decreased by $84.81 (MTD vs last month usage mix)",
+        "APN1-SearchOCU: decreased by $84.81 (MTD vs last month usage mix)",
+        "APN1-ES:GP3-Storage: decreased by $17.12 (MTD vs last month usage mix)",
+        "APN1-OpenSearchExtendedSupport: decreased by $8.24 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon OpenSearch Service."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Tax",
+      "trend": "down",
+      "delta_daily_usd": -2.86,
+      "summary": "Tax daily spend is $2.86/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "NoUsageType: decreased by $414.28 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Tax."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon ElastiCache",
+      "trend": "down",
+      "delta_daily_usd": -2.2,
+      "summary": "Amazon ElastiCache daily spend is $2.20/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-NodeUsage:cache.t3.micro: decreased by $100.23 (MTD vs last month usage mix)",
+        "APN1-NodeUsage:cache.t4g.micro: decreased by $41.84 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon ElastiCache."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon Virtual Private Cloud",
+      "trend": "down",
+      "delta_daily_usd": -2.15,
+      "summary": "Amazon Virtual Private Cloud daily spend is $2.15/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-PublicIPv4:InUseAddress: decreased by $173.17 (MTD vs last month usage mix)",
+        "APN1-PublicIPv4:IdleAddress: decreased by $26.51 (MTD vs last month usage mix)",
+        "APS3-PublicIPv4:InUseAddress: decreased by $5.09 (MTD vs last month usage mix)",
+        "APS2-PublicIPv4:InUseAddress: decreased by $4.58 (MTD vs last month usage mix)",
+        "USW2-PublicIPv4:InUseAddress: decreased by $2.54 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Virtual Private Cloud."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -2.13,
+      "summary": "EC2 - Other daily spend is $2.13/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-NatGateway-Hours: decreased by $94.63 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp3: decreased by $60.78 (MTD vs last month usage mix)",
+        "APS3-NatGateway-Hours: decreased by $28.49 (MTD vs last month usage mix)",
+        "APN1-EBS:SnapshotUsage: decreased by $23.64 (MTD vs last month usage mix)",
+        "USW2-NatGateway-Hours: decreased by $22.90 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "Amazon QuickSight",
+      "trend": "down",
+      "delta_daily_usd": -1.41,
+      "summary": "Amazon QuickSight daily spend is $1.41/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "APN1-Amazon-Q-QS-Fee: decreased by $178.37 (MTD vs last month usage mix)",
+        "APN1-Author-Pro-Enterprise-Month: decreased by $28.54 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon QuickSight."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "137575128411",
+      "account_name": "josys-dev2",
+      "service": "AWS Key Management Service",
+      "trend": "down",
+      "delta_daily_usd": -1.41,
+      "summary": "AWS Key Management Service daily spend is $1.41/day lower than last month's average for josys-dev2.",
+      "likely_causes": [
+        "ap-northeast-1-KMS-Keys: decreased by $157.98 (MTD vs last month usage mix)",
+        "ap-northeast-1-KMS-Requests: decreased by $2.59 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for AWS Key Management Service."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon Elastic Container Service",
+      "trend": "down",
+      "delta_daily_usd": -118.9,
+      "summary": "Amazon Elastic Container Service daily spend is $118.90/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-Fargate-vCPU-Hours:perCPU: decreased by $4,083.99 (MTD vs last month usage mix)",
+        "APN1-Fargate-GB-Hours: decreased by $948.85 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $40.58 (MTD vs last month usage mix)",
+        "APN1-SpotUsage-Fargate-vCPU-Hours:perCPU: decreased by $2.04 (MTD vs last month usage mix)",
+        "APN1-SpotUsage-Fargate-GB-Hours: decreased by $0.45 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify scaled-down services or reduced task counts."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -24.9,
+      "summary": "AmazonCloudWatch daily spend is $24.90/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-CW:GMD-Metrics: decreased by $729.09 (MTD vs last month usage mix)",
+        "APN1-DataProcessing-Bytes: decreased by $223.78 (MTD vs last month usage mix)",
+        "APN1-CW:AlarmMonitorUsage: decreased by $96.20 (MTD vs last month usage mix)",
+        "CW:GMD-Metrics: decreased by $13.18 (MTD vs last month usage mix)",
+        "APN1-CW:MetricMonitorUsage: decreased by $8.42 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Tax",
+      "trend": "down",
+      "delta_daily_usd": -17.81,
+      "summary": "Tax daily spend is $17.81/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "NoUsageType: decreased by $782.77 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Tax."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -17.64,
+      "summary": "Amazon Relational Database Service daily spend is $17.64/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r6g.large: decreased by $351.32 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $153.37 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t3.medium: decreased by $104.37 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageUsage: decreased by $60.33 (MTD vs last month usage mix)",
+        "APN1-Aurora:BackupUsage: decreased by $54.58 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon DocumentDB (with MongoDB compatibility)",
+      "trend": "down",
+      "delta_daily_usd": -14.36,
+      "summary": "Amazon DocumentDB (with MongoDB compatibility) daily spend is $14.36/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $486.16 (MTD vs last month usage mix)",
+        "APN1-StorageIOUsage: decreased by $208.17 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t3.medium: decreased by $181.96 (MTD vs last month usage mix)",
+        "APN1-StorageUsage: decreased by $67.05 (MTD vs last month usage mix)",
+        "APN1-CPUCredits:db.t4g: decreased by $15.78 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon DocumentDB (with MongoDB compatibility)."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon Managed Streaming for Apache Kafka",
+      "trend": "down",
+      "delta_daily_usd": -12.22,
+      "summary": "Amazon Managed Streaming for Apache Kafka daily spend is $12.22/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-Kafka.t3.small: decreased by $397.05 (MTD vs last month usage mix)",
+        "APN1-Kafka.Storage.GP2: decreased by $111.40 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.04 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify broker reductions or cluster changes."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon Elastic Load Balancing",
+      "trend": "down",
+      "delta_daily_usd": -10.49,
+      "summary": "Amazon Elastic Load Balancing daily spend is $10.49/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-LoadBalancerUsage: decreased by $445.26 (MTD vs last month usage mix)",
+        "APN1-LCUUsage: decreased by $9.89 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $0.32 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.22 (MTD vs last month usage mix)",
+        "APN1-USE2-AWS-Out-Bytes: decreased by $0.10 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Elastic Load Balancing."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "CodeBuild",
+      "trend": "down",
+      "delta_daily_usd": -10.27,
+      "summary": "CodeBuild daily spend is $10.27/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-Build-Min:Linux:g1.large: decreased by $569.59 (MTD vs last month usage mix)",
+        "APN1-Build-Min:Linux:g1.small: decreased by $18.84 (MTD vs last month usage mix)",
+        "APN1-Build-Min:Linux:g1.medium: decreased by $10.41 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for CodeBuild."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon OpenSearch Service",
+      "trend": "down",
+      "delta_daily_usd": -9.98,
+      "summary": "Amazon OpenSearch Service daily spend is $9.98/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-ESInstance:t3.medium: decreased by $373.21 (MTD vs last month usage mix)",
+        "APN1-ES:GP3-Storage: decreased by $33.99 (MTD vs last month usage mix)",
+        "APN1-ES:GP3-Provisioned-ThroughPut: decreased by $8.92 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.11 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon OpenSearch Service."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon ElastiCache",
+      "trend": "down",
+      "delta_daily_usd": -8.22,
+      "summary": "Amazon ElastiCache daily spend is $8.22/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-NodeUsage:cache.t3.micro: decreased by $260.13 (MTD vs last month usage mix)",
+        "APN1-NodeUsage:cache.t4g.micro: decreased by $83.26 (MTD vs last month usage mix)",
+        "APN1-ElastiCache:BackupUsage: decreased by $0.01 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon ElastiCache."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "AWS Systems Manager",
+      "trend": "down",
+      "delta_daily_usd": -4.9,
+      "summary": "AWS Systems Manager daily spend is $4.90/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-PS-Advanced-Param-Tier1: decreased by $196.55 (MTD vs last month usage mix)",
+        "APN1-PS-Param-Processed-Tier1: decreased by $5.23 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for AWS Systems Manager."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon EC2 Container Registry (ECR)",
+      "trend": "down",
+      "delta_daily_usd": -4.75,
+      "summary": "Amazon EC2 Container Registry (ECR) daily spend is $4.75/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-TimedStorage-ByteHrs: decreased by $167.22 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon EC2 Container Registry (ECR)."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -4.44,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $4.44/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.xlarge: decreased by $189.14 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.medium: decreased by $54.28 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:c6gn.medium: decreased by $42.33 (MTD vs last month usage mix)",
+        "APN1-USE1-AWS-Out-Bytes: decreased by $14.91 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:m5.2xlarge: increased by $14.71 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "Amazon Virtual Private Cloud",
+      "trend": "down",
+      "delta_daily_usd": -4.4,
+      "summary": "Amazon Virtual Private Cloud daily spend is $4.40/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-PublicIPv4:InUseAddress: decreased by $188.61 (MTD vs last month usage mix)",
+        "APN1-PublicIPv4:IdleAddress: decreased by $11.33 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Virtual Private Cloud."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "340752826805",
+      "account_name": "pre-staging",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -2.89,
+      "summary": "EC2 - Other daily spend is $2.89/day lower than last month's average for pre-staging.",
+      "likely_causes": [
+        "APN1-USE1-AWS-Out-Bytes: decreased by $44.35 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp3: decreased by $42.65 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $36.79 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Hours: decreased by $31.54 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Bytes: increased by $0.87 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "905418452628",
+      "account_name": "idac-qa",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -16.0,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $16.00/day lower than last month's average for idac-qa.",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.xlarge: decreased by $509.34 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:c6g.2xlarge: decreased by $238.76 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t2.medium: decreased by $35.77 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.medium: decreased by $18.60 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $0.06 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "905418452628",
+      "account_name": "idac-qa",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -10.85,
+      "summary": "EC2 - Other daily spend is $10.85/day lower than last month's average for idac-qa.",
+      "likely_causes": [
+        "APN1-DataTransfer-Regional-Bytes: decreased by $150.32 (MTD vs last month usage mix)",
+        "APN1-USE1-AWS-Out-Bytes: decreased by $148.82 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Bytes: decreased by $119.44 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Hours: decreased by $63.09 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp3: decreased by $41.18 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "905418452628",
+      "account_name": "idac-qa",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -2.2,
+      "summary": "AmazonCloudWatch daily spend is $2.20/day lower than last month's average for idac-qa.",
+      "likely_causes": [
+        "APN1-CW:GMD-Metrics: decreased by $89.35 (MTD vs last month usage mix)",
+        "APN1-CW:MetricMonitorUsage: decreased by $56.54 (MTD vs last month usage mix)",
+        "APN1-DataProcessing-Bytes: decreased by $5.14 (MTD vs last month usage mix)",
+        "APN1-CW:Requests: decreased by $1.50 (MTD vs last month usage mix)",
+        "APN1-VendedLog-Bytes: decreased by $0.21 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "905418452628",
+      "account_name": "idac-qa",
+      "service": "Amazon Managed Streaming for Apache Kafka",
+      "trend": "down",
+      "delta_daily_usd": -1.65,
+      "summary": "Amazon Managed Streaming for Apache Kafka daily spend is $1.65/day lower than last month's average for idac-qa.",
+      "likely_causes": [
+        "APN1-Kafka.m5.large: decreased by $275.75 (MTD vs last month usage mix)",
+        "APN1-Kafka.PrivateConnectivityHours: decreased by $12.37 (MTD vs last month usage mix)",
+        "APN1-Kafka.Storage.GP2: decreased by $3.43 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.04 (MTD vs last month usage mix)",
+        "APN1-Kafka.PrivateConnectivity.BytesProcessed: decreased by $0.01 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify broker reductions or cluster changes."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "905418452628",
+      "account_name": "idac-qa",
+      "service": "Tax",
+      "trend": "down",
+      "delta_daily_usd": -1.53,
+      "summary": "Tax daily spend is $1.53/day lower than last month's average for idac-qa.",
+      "likely_causes": [
+        "NoUsageType: decreased by $155.11 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Tax."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "905418452628",
+      "account_name": "idac-qa",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -1.39,
+      "summary": "Amazon Relational Database Service daily spend is $1.39/day lower than last month's average for idac-qa.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $61.01 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageIOUsage: decreased by $30.76 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageUsage: decreased by $4.32 (MTD vs last month usage mix)",
+        "APN1-Aurora:BackupUsage: decreased by $2.32 (MTD vs last month usage mix)",
+        "APN1-RDS:ChargedBackupUsage: decreased by $1.40 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "905418452628",
+      "account_name": "idac-qa",
+      "service": "Amazon Elastic MapReduce",
+      "trend": "down",
+      "delta_daily_usd": -1.0,
+      "summary": "Amazon Elastic MapReduce daily spend is $1.00/day lower than last month's average for idac-qa.",
+      "likely_causes": [
+        "APN1-EMR-EKS-EC2-vCPUHours: decreased by $20.69 (MTD vs last month usage mix)",
+        "APN1-EMR-EKS-EC2-GBHours: decreased by $15.27 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Elastic MapReduce."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "713881821705",
+      "account_name": "idac-staging",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -2.9,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $2.90/day lower than last month's average for idac-staging.",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.xlarge: decreased by $332.27 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:c6g.2xlarge: decreased by $310.53 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3.medium: decreased by $33.56 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3a.medium: decreased by $31.30 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.medium: decreased by $18.58 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "713881821705",
+      "account_name": "idac-staging",
+      "service": "Amazon Managed Streaming for Apache Kafka",
+      "trend": "down",
+      "delta_daily_usd": -1.57,
+      "summary": "Amazon Managed Streaming for Apache Kafka daily spend is $1.57/day lower than last month's average for idac-staging.",
+      "likely_causes": [
+        "APN1-Kafka.m5.large: decreased by $275.75 (MTD vs last month usage mix)",
+        "APN1-Kafka.Storage.GP2: decreased by $1.71 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.02 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify broker reductions or cluster changes."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "713881821705",
+      "account_name": "idac-staging",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -1.29,
+      "summary": "AmazonCloudWatch daily spend is $1.29/day lower than last month's average for idac-staging.",
+      "likely_causes": [
+        "APN1-CW:MetricMonitorUsage: decreased by $46.46 (MTD vs last month usage mix)",
+        "APN1-VendedLog-Bytes: decreased by $39.88 (MTD vs last month usage mix)",
+        "APN1-CW:GMD-Metrics: decreased by $36.21 (MTD vs last month usage mix)",
+        "APN1-DataProcessing-Bytes: decreased by $3.37 (MTD vs last month usage mix)",
+        "APN1-TimedStorage-ByteHrs: decreased by $3.30 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "713881821705",
+      "account_name": "idac-staging",
+      "service": "Amazon Managed Workflows for Apache Airflow",
+      "trend": "down",
+      "delta_daily_usd": -1.26,
+      "summary": "Amazon Managed Workflows for Apache Airflow daily spend is $1.26/day lower than last month's average for idac-staging.",
+      "likely_causes": [
+        "APN1-Airflow-SmallEnvironment: decreased by $249.30 (MTD vs last month usage mix)",
+        "APN1-Airflow-SmallWorker: increased by $0.37 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Managed Workflows for Apache Airflow."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -57.67,
+      "summary": "Amazon Relational Database Service daily spend is $57.67/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r7g.2xl: decreased by $2,126.22 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.r6g.xl: decreased by $1,378.62 (MTD vs last month usage mix)",
+        "APN1-InstanceUsageIOOptimized:db.r6g.2xl: decreased by $892.81 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageIOUsage: decreased by $638.87 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.large: decreased by $466.86 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon Elastic Container Service",
+      "trend": "down",
+      "delta_daily_usd": -30.9,
+      "summary": "Amazon Elastic Container Service daily spend is $30.90/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-Fargate-vCPU-Hours:perCPU: decreased by $4,580.81 (MTD vs last month usage mix)",
+        "APN1-Fargate-GB-Hours: decreased by $1,265.55 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $41.82 (MTD vs last month usage mix)",
+        "APN1-VpcPeering-In-Bytes: decreased by $0.01 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify scaled-down services or reduced task counts."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -22.6,
+      "summary": "AmazonCloudWatch daily spend is $22.60/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-DataProcessing-Bytes: decreased by $2,445.20 (MTD vs last month usage mix)",
+        "APN1-CW:MetricStreamUsage: decreased by $806.10 (MTD vs last month usage mix)",
+        "APN1-CW:GMD-Metrics: decreased by $162.40 (MTD vs last month usage mix)",
+        "APN1-CW:DatabaseInsights-vCPU-Hours: decreased by $152.63 (MTD vs last month usage mix)",
+        "APN1-DataScanned-Bytes: decreased by $66.75 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Tax",
+      "trend": "down",
+      "delta_daily_usd": -20.66,
+      "summary": "Tax daily spend is $20.66/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "NoUsageType: decreased by $1,862.30 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Tax."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon DocumentDB (with MongoDB compatibility)",
+      "trend": "down",
+      "delta_daily_usd": -10.54,
+      "summary": "Amazon DocumentDB (with MongoDB compatibility) daily spend is $10.54/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r6g.large: decreased by $1,617.22 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.r6g.xl: decreased by $646.89 (MTD vs last month usage mix)",
+        "APN1-StorageIOUsage: decreased by $244.87 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $235.33 (MTD vs last month usage mix)",
+        "APN1-StorageUsage: decreased by $116.37 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon DocumentDB (with MongoDB compatibility)."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -6.71,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $6.71/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-BoxUsage:m6g.2xlarge: decreased by $327.11 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:m5.large: decreased by $109.08 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3.large: decreased by $46.57 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.large: decreased by $37.10 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3a.medium: decreased by $21.02 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "AWS Identity and Access Management Access Analyzer",
+      "trend": "up",
+      "delta_daily_usd": 5.0,
+      "summary": "AWS Identity and Access Management Access Analyzer daily spend is $5.00/day higher than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-AccessFinding-Monitored-IAM-Resources: decreased by $2.21 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for AWS Identity and Access Management Access Analyzer and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -4.67,
+      "summary": "EC2 - Other daily spend is $4.67/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-NatGateway-Bytes: decreased by $516.04 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Hours: decreased by $189.20 (MTD vs last month usage mix)",
+        "APN1-USE1-AWS-Out-Bytes: decreased by $74.56 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp3: decreased by $24.94 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $16.53 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon Simple Storage Service",
+      "trend": "up",
+      "delta_daily_usd": 2.73,
+      "summary": "Amazon Simple Storage Service daily spend is $2.73/day higher than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-DataTransfer-Out-Bytes: decreased by $900.30 (MTD vs last month usage mix)",
+        "APN1-TimedStorage-ByteHrs: decreased by $35.87 (MTD vs last month usage mix)",
+        "APN1-Requests-Tier1: decreased by $10.79 (MTD vs last month usage mix)",
+        "APN1-Requests-Tier3: decreased by $7.25 (MTD vs last month usage mix)",
+        "APN1-TimedStorage-GlacierByteHrs: decreased by $3.94 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review S3 storage class transitions, request rates, and data transfer."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon OpenSearch Service",
+      "trend": "down",
+      "delta_daily_usd": -2.0,
+      "summary": "Amazon OpenSearch Service daily spend is $2.00/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-ESInstance:t3.medium: decreased by $284.59 (MTD vs last month usage mix)",
+        "APN1-ES:GP3-Storage: decreased by $57.37 (MTD vs last month usage mix)",
+        "APN1-ES:GP3-Provisioned-ThroughPut: decreased by $6.84 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.04 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon OpenSearch Service."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon ElastiCache",
+      "trend": "down",
+      "delta_daily_usd": -1.76,
+      "summary": "Amazon ElastiCache daily spend is $1.76/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-NodeUsage:cache.t3.medium: decreased by $261.92 (MTD vs last month usage mix)",
+        "APN1-NodeUsage:cache.t3.micro: decreased by $39.66 (MTD vs last month usage mix)",
+        "APN1-NodeUsage:cache.t4g.micro: decreased by $12.72 (MTD vs last month usage mix)",
+        "APN1-ElastiCache:BackupUsage: decreased by $0.01 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon ElastiCache."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon CloudFront",
+      "trend": "down",
+      "delta_daily_usd": -1.64,
+      "summary": "Amazon CloudFront daily spend is $1.64/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "JP-Requests-Tier2-HTTPS: decreased by $74.42 (MTD vs last month usage mix)",
+        "JP-Requests-HTTPS-Proxy: decreased by $13.57 (MTD vs last month usage mix)",
+        "JP-DataTransfer-Out-Bytes: decreased by $9.59 (MTD vs last month usage mix)",
+        "JP-DataTransfer-Out-OBytes: decreased by $4.16 (MTD vs last month usage mix)",
+        "US-Requests-Tier2-HTTPS: decreased by $1.48 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon CloudFront."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon Elastic Load Balancing",
+      "trend": "down",
+      "delta_daily_usd": -1.46,
+      "summary": "Amazon Elastic Load Balancing daily spend is $1.46/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-LoadBalancerUsage: decreased by $206.14 (MTD vs last month usage mix)",
+        "APN1-LCUUsage: decreased by $3.80 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $2.90 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.32 (MTD vs last month usage mix)",
+        "APN1-VpcPeering-Out-Bytes: decreased by $0.02 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Elastic Load Balancing."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "Amazon Virtual Private Cloud",
+      "trend": "down",
+      "delta_daily_usd": -1.17,
+      "summary": "Amazon Virtual Private Cloud daily spend is $1.17/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-PublicIPv4:InUseAddress: decreased by $145.11 (MTD vs last month usage mix)",
+        "APN1-PublicIPv4:IdleAddress: decreased by $0.03 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Virtual Private Cloud."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "351343535468",
+      "account_name": "josys-prod",
+      "service": "CodeBuild",
+      "trend": "down",
+      "delta_daily_usd": -1.07,
+      "summary": "CodeBuild daily spend is $1.07/day lower than last month's average for josys-prod.",
+      "likely_causes": [
+        "APN1-Build-Min:Linux:g1.small: decreased by $119.53 (MTD vs last month usage mix)",
+        "APN1-Build-Min:Linux:g1.large: decreased by $11.70 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for CodeBuild."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -31.37,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $31.37/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.2xlarge: decreased by $2,787.02 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:c6g.2xlarge: decreased by $776.55 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3.medium: decreased by $33.58 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.medium: decreased by $18.57 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $0.36 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -11.75,
+      "summary": "EC2 - Other daily spend is $11.75/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "APN1-DataTransfer-Regional-Bytes: decreased by $1,208.56 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Bytes: decreased by $83.53 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp3: decreased by $71.13 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Hours: decreased by $63.09 (MTD vs last month usage mix)",
+        "APN1-USE1-AWS-Out-Bytes: decreased by $52.41 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -6.44,
+      "summary": "AmazonCloudWatch daily spend is $6.44/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "APN1-CW:GMD-Metrics: decreased by $174.84 (MTD vs last month usage mix)",
+        "APN1-VendedLog-Bytes: decreased by $144.82 (MTD vs last month usage mix)",
+        "APN1-CW:MetricMonitorUsage: decreased by $94.78 (MTD vs last month usage mix)",
+        "APN1-S3-Egress-Bytes: decreased by $32.30 (MTD vs last month usage mix)",
+        "CW:GMD-Metrics: decreased by $6.69 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "Amazon Simple Storage Service",
+      "trend": "down",
+      "delta_daily_usd": -5.45,
+      "summary": "Amazon Simple Storage Service daily spend is $5.45/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "APN1-Requests-Tier2: decreased by $261.66 (MTD vs last month usage mix)",
+        "APN1-Requests-Tier1: decreased by $125.29 (MTD vs last month usage mix)",
+        "APN1-TimedStorage-ByteHrs: decreased by $110.88 (MTD vs last month usage mix)",
+        "Requests-Tier1: decreased by $0.17 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $0.01 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check lifecycle policies or reduced storage footprint."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "Amazon Elastic MapReduce",
+      "trend": "down",
+      "delta_daily_usd": -4.61,
+      "summary": "Amazon Elastic MapReduce daily spend is $4.61/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "APN1-EMR-EKS-EC2-vCPUHours: decreased by $200.81 (MTD vs last month usage mix)",
+        "APN1-EMR-EKS-EC2-GBHours: decreased by $148.02 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Elastic MapReduce."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "Amazon Managed Workflows for Apache Airflow",
+      "trend": "down",
+      "delta_daily_usd": -3.46,
+      "summary": "Amazon Managed Workflows for Apache Airflow daily spend is $3.46/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "APN1-Airflow-MediumEnvironment: decreased by $376.49 (MTD vs last month usage mix)",
+        "APN1-Airflow-MediumWorker: decreased by $75.01 (MTD vs last month usage mix)",
+        "APN1-Airflow-MediumScheduler: decreased by $55.96 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Managed Workflows for Apache Airflow."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "AWS Key Management Service",
+      "trend": "down",
+      "delta_daily_usd": -2.11,
+      "summary": "AWS Key Management Service daily spend is $2.11/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "ap-northeast-1-KMS-Requests: decreased by $386.80 (MTD vs last month usage mix)",
+        "ap-northeast-1-KMS-Keys: decreased by $11.44 (MTD vs last month usage mix)",
+        "eu-north-1-KMS-Requests: decreased by $0.01 (MTD vs last month usage mix)",
+        "eu-west-2-KMS-Requests: decreased by $0.01 (MTD vs last month usage mix)",
+        "ap-southeast-1-KMS-Requests: decreased by $0.01 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for AWS Key Management Service."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "Amazon Managed Streaming for Apache Kafka",
+      "trend": "down",
+      "delta_daily_usd": -1.61,
+      "summary": "Amazon Managed Streaming for Apache Kafka daily spend is $1.61/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "APN1-Kafka.m5.large: decreased by $275.75 (MTD vs last month usage mix)",
+        "APN1-Kafka.Storage.GP2: decreased by $5.13 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $1.20 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify broker reductions or cluster changes."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "637423183342",
+      "account_name": "idac-prod",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -1.57,
+      "summary": "Amazon Relational Database Service daily spend is $1.57/day lower than last month's average for idac-prod.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $234.72 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageIOUsage: decreased by $65.37 (MTD vs last month usage mix)",
+        "APN1-CPUCredits:db.t4g: decreased by $5.88 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageUsage: decreased by $4.09 (MTD vs last month usage mix)",
+        "APN1-Aurora:BackupUsage: decreased by $3.29 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -10.21,
+      "summary": "AmazonCloudWatch daily spend is $10.21/day lower than last month's average for josys-staging.",
+      "likely_causes": [
+        "APN1-CW:MetricStreamUsage: decreased by $343.01 (MTD vs last month usage mix)",
+        "APN1-CW:GMD-Metrics: decreased by $107.36 (MTD vs last month usage mix)",
+        "APN1-DataProcessing-Bytes: decreased by $51.98 (MTD vs last month usage mix)",
+        "APN1-CW:AlarmMonitorUsage: decreased by $16.71 (MTD vs last month usage mix)",
+        "APN1-VendedLog-Bytes: decreased by $15.00 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -10.18,
+      "summary": "Amazon Relational Database Service daily spend is $10.18/day lower than last month's average for josys-staging.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r6g.large: decreased by $301.60 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.large: decreased by $295.11 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $100.46 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t3.medium: decreased by $82.09 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageIOUsage: decreased by $21.38 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "Tax",
+      "trend": "down",
+      "delta_daily_usd": -4.28,
+      "summary": "Tax daily spend is $4.28/day lower than last month's average for josys-staging.",
+      "likely_causes": [
+        "NoUsageType: decreased by $400.72 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Tax."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "up",
+      "delta_daily_usd": 2.09,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $2.09/day higher than last month's average for josys-staging.",
+      "likely_causes": [
+        "APN1-BoxUsage:m6g.2xlarge: decreased by $140.47 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: increased by $19.06 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.medium: decreased by $18.60 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:c6gn.medium: decreased by $11.75 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3a.small: decreased by $10.48 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review EC2 instance count and new instance launches in Cost Explorer.",
+        "Check for stopped-to-running changes and Auto Scaling events."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "Amazon Elastic Container Service",
+      "trend": "down",
+      "delta_daily_usd": -1.96,
+      "summary": "Amazon Elastic Container Service daily spend is $1.96/day lower than last month's average for josys-staging.",
+      "likely_causes": [
+        "APN1-Fargate-vCPU-Hours:perCPU: decreased by $884.74 (MTD vs last month usage mix)",
+        "APN1-Fargate-GB-Hours: decreased by $197.89 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $11.91 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify scaled-down services or reduced task counts."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "CodeBuild",
+      "trend": "down",
+      "delta_daily_usd": -1.79,
+      "summary": "CodeBuild daily spend is $1.79/day lower than last month's average for josys-staging.",
+      "likely_causes": [
+        "APN1-Build-Min:Linux:g1.large: decreased by $134.15 (MTD vs last month usage mix)",
+        "APN1-Build-Min:Linux:g1.small: decreased by $0.85 (MTD vs last month usage mix)",
+        "APN1-Build-Min:Linux:g1.medium: decreased by $0.01 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for CodeBuild."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "Amazon OpenSearch Service",
+      "trend": "down",
+      "delta_daily_usd": -1.47,
+      "summary": "Amazon OpenSearch Service daily spend is $1.47/day lower than last month's average for josys-staging.",
+      "likely_causes": [
+        "APN1-ESInstance:t3.medium: decreased by $227.93 (MTD vs last month usage mix)",
+        "APN1-ES:GP3-Storage: decreased by $20.89 (MTD vs last month usage mix)",
+        "APN1-ES:GP3-Provisioned-ThroughPut: decreased by $5.48 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.03 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon OpenSearch Service."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "Amazon ElastiCache",
+      "trend": "down",
+      "delta_daily_usd": -1.34,
+      "summary": "Amazon ElastiCache daily spend is $1.34/day lower than last month's average for josys-staging.",
+      "likely_causes": [
+        "APN1-NodeUsage:cache.t3.medium: decreased by $157.21 (MTD vs last month usage mix)",
+        "APN1-NodeUsage:cache.t3.micro: decreased by $79.36 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon ElastiCache."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "598628178244",
+      "account_name": "josys-staging",
+      "service": "Amazon Elastic Load Balancing",
+      "trend": "down",
+      "delta_daily_usd": -1.14,
+      "summary": "Amazon Elastic Load Balancing daily spend is $1.14/day lower than last month's average for josys-staging.",
+      "likely_causes": [
+        "APN1-LoadBalancerUsage: decreased by $187.81 (MTD vs last month usage mix)",
+        "APN1-LCUUsage: decreased by $0.73 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $0.29 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.06 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Elastic Load Balancing."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "152426705810",
+      "account_name": "caf-rpa",
+      "service": "Amazon Elastic Container Service",
+      "trend": "up",
+      "delta_daily_usd": 12.44,
+      "summary": "Amazon Elastic Container Service daily spend is $12.44/day higher than last month's average for caf-rpa.",
+      "likely_causes": [
+        "APN1-Fargate-vCPU-Hours:perCPU: decreased by $230.65 (MTD vs last month usage mix)",
+        "APN1-Fargate-GB-Hours: decreased by $50.30 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.93 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review ECS/Fargate task count, CPU/memory allocation, and new services."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "152426705810",
+      "account_name": "caf-rpa",
+      "service": "EC2 - Other",
+      "trend": "up",
+      "delta_daily_usd": 7.53,
+      "summary": "EC2 - Other daily spend is $7.53/day higher than last month's average for caf-rpa.",
+      "likely_causes": [
+        "APN1-NatGateway-Hours: decreased by $31.54 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Bytes: increased by $3.70 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp3: decreased by $1.58 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp2: decreased by $0.69 (MTD vs last month usage mix)",
+        "APN1-USE1-AWS-Out-Bytes: decreased by $0.59 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for EC2 - Other and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "152426705810",
+      "account_name": "caf-rpa",
+      "service": "Amazon DocumentDB (with MongoDB compatibility)",
+      "trend": "down",
+      "delta_daily_usd": -4.81,
+      "summary": "Amazon DocumentDB (with MongoDB compatibility) daily spend is $4.81/day lower than last month's average for caf-rpa.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.r6g.large: decreased by $646.89 (MTD vs last month usage mix)",
+        "APN1-InstanceUsage:db.t3.medium: decreased by $121.30 (MTD vs last month usage mix)",
+        "APN1-BackupUsage: decreased by $16.32 (MTD vs last month usage mix)",
+        "APN1-StorageUsage: decreased by $16.05 (MTD vs last month usage mix)",
+        "APN1-StorageIOUsage: decreased by $6.35 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon DocumentDB (with MongoDB compatibility)."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "152426705810",
+      "account_name": "caf-rpa",
+      "service": "Tax",
+      "trend": "up",
+      "delta_daily_usd": 1.15,
+      "summary": "Tax daily spend is $1.15/day higher than last month's average for caf-rpa.",
+      "likely_causes": [
+        "NoUsageType: decreased by $84.10 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Open AWS Cost Explorer for Tax and compare daily spend.",
+        "Check for new resources or usage spikes in the linked account."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -22.52,
+      "summary": "Amazon Relational Database Service daily spend is $22.52/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-InstanceUsage:db.t4g.medium: decreased by $498.39 (MTD vs last month usage mix)",
+        "USE2-InstanceUsage:db.r7g.large: decreased by $440.77 (MTD vs last month usage mix)",
+        "USE2-InstanceUsage:db.r6g.large: decreased by $404.18 (MTD vs last month usage mix)",
+        "USE2-InstanceUsage:db.r5.large: decreased by $159.48 (MTD vs last month usage mix)",
+        "USE2-InstanceUsage:db.t3.medium: decreased by $130.14 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Elastic Container Service",
+      "trend": "down",
+      "delta_daily_usd": -16.46,
+      "summary": "Amazon Elastic Container Service daily spend is $16.46/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-Fargate-vCPU-Hours:perCPU: decreased by $3,096.46 (MTD vs last month usage mix)",
+        "USE2-Fargate-GB-Hours: decreased by $913.11 (MTD vs last month usage mix)",
+        "USE2-DataTransfer-Regional-Bytes: decreased by $1.26 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify scaled-down services or reduced task counts."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -10.88,
+      "summary": "AmazonCloudWatch daily spend is $10.88/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-CW:MetricStreamUsage: decreased by $698.81 (MTD vs last month usage mix)",
+        "USE2-CW:GMD-Metrics: decreased by $245.47 (MTD vs last month usage mix)",
+        "USE2-CW:MetricMonitorUsage: decreased by $96.17 (MTD vs last month usage mix)",
+        "USE2-VendedLog-Bytes: decreased by $87.49 (MTD vs last month usage mix)",
+        "USE2-DataProcessing-Bytes: decreased by $31.72 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon DocumentDB (with MongoDB compatibility)",
+      "trend": "down",
+      "delta_daily_usd": -4.92,
+      "summary": "Amazon DocumentDB (with MongoDB compatibility) daily spend is $4.92/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-InstanceUsage:db.t4g.medium: decreased by $539.87 (MTD vs last month usage mix)",
+        "USE2-InstanceUsage:db.r6g.large: decreased by $268.24 (MTD vs last month usage mix)",
+        "USE2-StorageIOUsage: decreased by $17.97 (MTD vs last month usage mix)",
+        "USE2-StorageUsage: decreased by $4.60 (MTD vs last month usage mix)",
+        "USE2-BackupUsage: decreased by $0.43 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon DocumentDB (with MongoDB compatibility)."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -3.22,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $3.22/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-BoxUsage:m5.xlarge: decreased by $713.65 (MTD vs last month usage mix)",
+        "USE2-BoxUsage:m6g.2xlarge: decreased by $368.28 (MTD vs last month usage mix)",
+        "USE2-BoxUsage:c6g.2xlarge: decreased by $332.75 (MTD vs last month usage mix)",
+        "USE2-BoxUsage:c6g.xlarge: decreased by $68.62 (MTD vs last month usage mix)",
+        "USE2-BoxUsage:t3.medium: decreased by $58.91 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Managed Streaming for Apache Kafka",
+      "trend": "down",
+      "delta_daily_usd": -3.07,
+      "summary": "Amazon Managed Streaming for Apache Kafka daily spend is $3.07/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-Kafka.m5.large: decreased by $427.36 (MTD vs last month usage mix)",
+        "USE2-Kafka.t3.small: decreased by $69.60 (MTD vs last month usage mix)",
+        "USE2-Kafka.Storage.GP2: decreased by $38.53 (MTD vs last month usage mix)",
+        "USE2-DataTransfer-Regional-Bytes: decreased by $0.15 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify broker reductions or cluster changes."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Managed Workflows for Apache Airflow",
+      "trend": "down",
+      "delta_daily_usd": -2.67,
+      "summary": "Amazon Managed Workflows for Apache Airflow daily spend is $2.67/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-Airflow-MediumEnvironment: decreased by $376.29 (MTD vs last month usage mix)",
+        "USE2-Airflow-MediumScheduler: decreased by $55.94 (MTD vs last month usage mix)",
+        "USE2-Airflow-MediumWorker: decreased by $10.54 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Managed Workflows for Apache Airflow."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -1.9,
+      "summary": "EC2 - Other daily spend is $1.90/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-NatGateway-Hours: decreased by $137.37 (MTD vs last month usage mix)",
+        "USE2-NatGateway-Bytes: decreased by $137.14 (MTD vs last month usage mix)",
+        "USE2-EBS:VolumeUsage.gp3: decreased by $73.68 (MTD vs last month usage mix)",
+        "USE2-DataTransfer-Regional-Bytes: decreased by $61.72 (MTD vs last month usage mix)",
+        "USE2-USE1-AWS-Out-Bytes: decreased by $8.93 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Tax",
+      "trend": "down",
+      "delta_daily_usd": -1.74,
+      "summary": "Tax daily spend is $1.74/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "NoUsageType: decreased by $590.25 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Tax."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Elastic Load Balancing",
+      "trend": "down",
+      "delta_daily_usd": -1.63,
+      "summary": "Amazon Elastic Load Balancing daily spend is $1.63/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-LoadBalancerUsage: decreased by $286.18 (MTD vs last month usage mix)",
+        "USE2-LCUUsage: decreased by $0.67 (MTD vs last month usage mix)",
+        "USE2-DataTransfer-Out-Bytes: decreased by $0.50 (MTD vs last month usage mix)",
+        "USE2-DataTransfer-Regional-Bytes: decreased by $0.30 (MTD vs last month usage mix)",
+        "USE2-APN1-AWS-Out-Bytes: decreased by $0.02 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Elastic Load Balancing."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Inspector",
+      "trend": "down",
+      "delta_daily_usd": -1.58,
+      "summary": "Amazon Inspector daily spend is $1.58/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-container-image-initial-scan: decreased by $54.90 (MTD vs last month usage mix)",
+        "USE2-container-image-re-scan: decreased by $43.69 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Inspector."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon OpenSearch Service",
+      "trend": "down",
+      "delta_daily_usd": -1.41,
+      "summary": "Amazon OpenSearch Service daily spend is $1.41/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-ESInstance:t3.medium: decreased by $185.70 (MTD vs last month usage mix)",
+        "USE2-ES:GP3-Storage: decreased by $47.87 (MTD vs last month usage mix)",
+        "USE2-ES:GP3-Provisioned-ThroughPut: decreased by $5.71 (MTD vs last month usage mix)",
+        "USE2-DataTransfer-Regional-Bytes: decreased by $0.03 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon OpenSearch Service."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon ElastiCache",
+      "trend": "down",
+      "delta_daily_usd": -1.3,
+      "summary": "Amazon ElastiCache daily spend is $1.30/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-NodeUsage:cache.t3.medium: decreased by $172.98 (MTD vs last month usage mix)",
+        "USE2-NodeUsage:cache.t3.micro: decreased by $25.94 (MTD vs last month usage mix)",
+        "USE2-NodeUsage:cache.t4g.micro: decreased by $16.27 (MTD vs last month usage mix)",
+        "USE2-NodeUsage:cache.t4g.small: decreased by $16.25 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon ElastiCache."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Elastic Container Service for Kubernetes",
+      "trend": "down",
+      "delta_daily_usd": -1.15,
+      "summary": "Amazon Elastic Container Service for Kubernetes daily spend is $1.15/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-AmazonEKS-Hours:perCluster: decreased by $203.50 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify scaled-down services or reduced task counts."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "229468566969",
+      "account_name": "josys-us",
+      "service": "Amazon Virtual Private Cloud",
+      "trend": "down",
+      "delta_daily_usd": -1.05,
+      "summary": "Amazon Virtual Private Cloud daily spend is $1.05/day lower than last month's average for josys-us.",
+      "likely_causes": [
+        "USE2-PublicIPv4:InUseAddress: decreased by $168.42 (MTD vs last month usage mix)",
+        "USE2-VpcEndpoint-Hours: decreased by $10.16 (MTD vs last month usage mix)",
+        "USE2-VpcEndpoint-Bytes: decreased by $3.32 (MTD vs last month usage mix)",
+        "USE2-PublicIPv4:IdleAddress: decreased by $0.03 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Virtual Private Cloud."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "924139482843",
+      "account_name": "josys-vpn",
+      "service": "Amazon Virtual Private Cloud",
+      "trend": "down",
+      "delta_daily_usd": -8.54,
+      "summary": "Amazon Virtual Private Cloud daily spend is $8.54/day lower than last month's average for josys-vpn.",
+      "likely_causes": [
+        "APN1-ClientVPN-EndpointHours: decreased by $686.83 (MTD vs last month usage mix)",
+        "APN1-ClientVPN-ConnectionHours: decreased by $371.72 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $183.04 (MTD vs last month usage mix)",
+        "APN1-PublicIPv4:InUseAddress: decreased by $36.47 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Amazon Virtual Private Cloud."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "924139482843",
+      "account_name": "josys-vpn",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -2.28,
+      "summary": "EC2 - Other daily spend is $2.28/day lower than last month's average for josys-vpn.",
+      "likely_causes": [
+        "APN1-NatGateway-Bytes: decreased by $134.66 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Hours: decreased by $94.46 (MTD vs last month usage mix)",
+        "APN1-USE1-AWS-Out-Bytes: decreased by $4.50 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $1.13 (MTD vs last month usage mix)",
+        "APN1-APS2-AWS-Out-Bytes: decreased by $0.26 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "147997136868",
+      "account_name": "jep-devqa",
+      "service": "AmazonCloudWatch",
+      "trend": "up",
+      "delta_daily_usd": 5.3,
+      "summary": "AmazonCloudWatch daily spend is $5.30/day higher than last month's average for jep-devqa.",
+      "likely_causes": [
+        "APN1-VendedLog-Bytes: decreased by $90.24 (MTD vs last month usage mix)",
+        "APN1-CW:MetricMonitorUsage: decreased by $49.48 (MTD vs last month usage mix)",
+        "APN1-DataProcessing-Bytes: decreased by $41.75 (MTD vs last month usage mix)",
+        "APN1-CW:GMD-Metrics: decreased by $29.67 (MTD vs last month usage mix)",
+        "DashboardsUsageHour-Basic: decreased by $2.12 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Inspect log ingestion volume and custom metric counts.",
+        "Review log retention and high-cardinality metrics."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "147997136868",
+      "account_name": "jep-devqa",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -2.73,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $2.73/day lower than last month's average for jep-devqa.",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.xlarge: decreased by $544.31 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3.medium: decreased by $67.15 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.micro: decreased by $4.64 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $0.51 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3a.medium: decreased by $0.06 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "147997136868",
+      "account_name": "jep-devqa",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -1.17,
+      "summary": "Amazon Relational Database Service daily spend is $1.17/day lower than last month's average for jep-devqa.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $58.68 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageIOUsage: decreased by $18.08 (MTD vs last month usage mix)",
+        "APN1-RDS:ChargedBackupUsage: decreased by $4.99 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageUsage: decreased by $4.91 (MTD vs last month usage mix)",
+        "APN1-CPUCredits:db.t4g: decreased by $4.05 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "688567279148",
+      "account_name": "jep-prod",
+      "service": "Amazon Relational Database Service",
+      "trend": "down",
+      "delta_daily_usd": -4.19,
+      "summary": "Amazon Relational Database Service daily spend is $4.19/day lower than last month's average for jep-prod.",
+      "likely_causes": [
+        "APN1-InstanceUsage:db.t4g.medium: decreased by $469.46 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageIOUsage: decreased by $41.12 (MTD vs last month usage mix)",
+        "APN1-RDS:ChargedBackupUsage: decreased by $8.02 (MTD vs last month usage mix)",
+        "APN1-Aurora:BackupUsage: decreased by $0.78 (MTD vs last month usage mix)",
+        "APN1-Aurora:StorageUsage: decreased by $0.73 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Confirm instance downsizing, I/O reduction, or deleted databases."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "688567279148",
+      "account_name": "jep-prod",
+      "service": "AmazonCloudWatch",
+      "trend": "down",
+      "delta_daily_usd": -3.61,
+      "summary": "AmazonCloudWatch daily spend is $3.61/day lower than last month's average for jep-prod.",
+      "likely_causes": [
+        "APN1-CW:GMD-Metrics: decreased by $126.55 (MTD vs last month usage mix)",
+        "APN1-VendedLog-Bytes: decreased by $78.95 (MTD vs last month usage mix)",
+        "APN1-CW:MetricMonitorUsage: decreased by $43.75 (MTD vs last month usage mix)",
+        "APN1-S3-Egress-Bytes: decreased by $18.12 (MTD vs last month usage mix)",
+        "APN1-DataProcessing-Bytes: decreased by $2.55 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Check log retention reductions or metric cleanup."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "688567279148",
+      "account_name": "jep-prod",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -2.92,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $2.92/day lower than last month's average for jep-prod.",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.xlarge: decreased by $653.36 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3.medium: decreased by $33.57 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3a.medium: decreased by $12.39 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.micro: decreased by $4.64 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $1.93 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "688567279148",
+      "account_name": "jep-prod",
+      "service": "Tax",
+      "trend": "down",
+      "delta_daily_usd": -1.59,
+      "summary": "Tax daily spend is $1.59/day lower than last month's average for jep-prod.",
+      "likely_causes": [
+        "NoUsageType: decreased by $150.15 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for Tax."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "688567279148",
+      "account_name": "jep-prod",
+      "service": "Amazon Managed Streaming for Apache Kafka",
+      "trend": "down",
+      "delta_daily_usd": -1.57,
+      "summary": "Amazon Managed Streaming for Apache Kafka daily spend is $1.57/day lower than last month's average for jep-prod.",
+      "likely_causes": [
+        "APN1-Kafka.m5.large: decreased by $275.75 (MTD vs last month usage mix)",
+        "APN1-Kafka.Storage.GP2: decreased by $1.71 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $0.04 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify broker reductions or cluster changes."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "688567279148",
+      "account_name": "jep-prod",
+      "service": "EC2 - Other",
+      "trend": "down",
+      "delta_daily_usd": -1.38,
+      "summary": "EC2 - Other daily spend is $1.38/day lower than last month's average for jep-prod.",
+      "likely_causes": [
+        "APN1-NatGateway-Bytes: decreased by $73.01 (MTD vs last month usage mix)",
+        "APN1-NatGateway-Hours: decreased by $62.97 (MTD vs last month usage mix)",
+        "APN1-EBS:VolumeUsage.gp3: decreased by $48.08 (MTD vs last month usage mix)",
+        "APN1-USE1-AWS-Out-Bytes: decreased by $14.38 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Regional-Bytes: decreased by $13.86 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Review resource decommissioning or usage reductions for EC2 - Other."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "463470957463",
+      "account_name": "jep-stage",
+      "service": "Amazon Elastic Compute Cloud - Compute",
+      "trend": "down",
+      "delta_daily_usd": -2.68,
+      "summary": "Amazon Elastic Compute Cloud - Compute daily spend is $2.68/day lower than last month's average for jep-stage.",
+      "likely_causes": [
+        "APN1-BoxUsage:m5.xlarge: decreased by $653.16 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t3a.medium: decreased by $12.42 (MTD vs last month usage mix)",
+        "APN1-BoxUsage:t4g.micro: decreased by $4.64 (MTD vs last month usage mix)",
+        "APN1-DataTransfer-Out-Bytes: decreased by $0.15 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Verify rightsizing, scheduling, or instance terminations drove savings."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    },
+    {
+      "account_id": "463470957463",
+      "account_name": "jep-stage",
+      "service": "AmazonCloudWatch",
+      "trend": "up",
+      "delta_daily_usd": 1.89,
+      "summary": "AmazonCloudWatch daily spend is $1.89/day higher than last month's average for jep-stage.",
+      "likely_causes": [
+        "APN1-VendedLog-Bytes: decreased by $78.02 (MTD vs last month usage mix)",
+        "APN1-CW:GMD-Metrics: decreased by $45.59 (MTD vs last month usage mix)",
+        "APN1-CW:MetricMonitorUsage: decreased by $43.66 (MTD vs last month usage mix)",
+        "APN1-DataProcessing-Bytes: increased by $14.65 (MTD vs last month usage mix)",
+        "APN1-TimedStorage-ByteHrs: decreased by $0.35 (MTD vs last month usage mix)"
+      ],
+      "actions": [
+        "Inspect log ingestion volume and custom metric counts.",
+        "Review log retention and high-cardinality metrics."
+      ],
+      "confidence": "medium",
+      "source": "heuristic"
+    }
+  ]
+}
